@@ -5,7 +5,7 @@ My name is Alark Bhavsar, I am a rising Junior in the College of Computer and In
 The repo created here is used for the CS4550 Web Development class. It will be where all my work will be published for both personal use as well as grading and troubleshooting help from the professor and TAs.
 
 ## Links
-[Heroku](https://bhavsar-alark-webdev.herokuapp.com)
-[Project](https:/bhavsar-alark-webdev.herokuapp.com/project/)
-[Assignments](https://bhavsar-alark-webdev.herokuapp.com/assignment/)
+[Heroku](https://bhavsar-alark-webdev.herokuapp.com)  
+[Project](https:/bhavsar-alark-webdev.herokuapp.com/project/)  
+[Assignments](https://bhavsar-alark-webdev.herokuapp.com/assignment/)  
  
