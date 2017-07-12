@@ -1,0 +1,21 @@
+input {
+
+    margin-bottom: 5px;
+}
+
+body {
+
+    padding-top: 60px;
+
+}
+
+.navbar-header {
+
+    background-color: #235786;
+    border-color: #235786;
+
+}
+
+.navbar-default .navbar-brand {
+    color: white;
+}

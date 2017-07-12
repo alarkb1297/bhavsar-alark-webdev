@@ -97,7 +97,7 @@
             <a id="top"/>
 
             <h2>Anchor Table of Content</h2>
-            
+
             <ul>
                 <li><a href="#what">What is Lorem Ipsum?</a></li>
                 <li><a href="#why">Why do we use it?</a></li>
@@ -134,7 +134,48 @@
             </p>
 
 
+    <h1>CSS Stuff</h1>
 
+            <h2>CSS Style Attribute</h2>
+
+            <h2 style="color: green">
+                Inline Styled Heading
+            </h2>
+
+            <p>
+                Individual elements can be styled using their <b>style</b> attribute.
+                The <b>style</b> attribute of the heading above has a value of
+                <b>color: green</b> which sets its foreground color. Using the <b>style</b>
+                is fine to quickly test the effects of CSS on a specific element. It
+                is generally considered to be bad practice when developing production
+                ready HTML since it is harder to maintain specific HTML files as opposed
+                to handling Website wide styling.
+            </p>
+
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+            </p>
+
+            <div class="container">
+
+                <h1 class="blue-color">Classes Selectors are More Specific than Element Selectors</h1>
+                <h1>Red Colored H1s</h1>
+
+                <p>
+                    The heading above matches two rules
+
+                    <b>h1.blue-color { color: blue;  }</b>
+                    and
+                    <b>h1 { color: red;  }</b>.
+
+                    One of rules wants <b>h1</b> to be blue, and the other wants <b>h1</b> to be red. When there's a conflict, the CSS rules engine needs to resolve these ambiguities. According to the <i>document order of declaration</i>, the last rule wins, the last one overrides previous rules. So <b>h1 { color: red;  }</b> would normally win, but <i>specificity</i> has precedence over document order, so the rule <b>h1.blue-color { color: blue;  }</b> ends up winning. <b>.blue-color</b> matches all elements whose <b>class</b> attribute is set to <b>blue-color</b>. Note the period in rule, but not in the class attribute value.
+                </p>
+
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+
+            </div>
 
 
     </body>
