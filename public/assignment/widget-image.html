@@ -2,9 +2,95 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../vendor/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <title>Edit Page</title>
 </head>
+
 <body>
 
+    <nav class="navbar navbar-page-color navbar-fixed-top">
+
+        <div class="navbar-header">
+
+            <a href="widget-chooser.html">
+                <span class="pull-left glyphicon glyphicon-chevron-left black-icons btn-lg"></span>
+            </a>
+
+            <a class="navbar-brand">Edit Widget</a>
+
+            <a href="widget-list.html">
+                <span class="pull-right glyphicon glyphicon-ok black-icons btn-lg"></span>
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <div class="container-fluid">
+
+        <label for="widgetName">Name</label>
+        <input name="pageName"
+               class="form-control"
+               placeholder="Header"
+               id="widgetName"/>
+
+        <label for="widgetText">Text</label>
+        <input name="widgetText"
+               class="form-control"
+               row="3"
+               placeholder="Mosqioto Picture"
+               id="widgetText">
+        </input>
+
+        <label for="widgetURL">URL</label>
+        <input name="widgetURL"
+               type="url"
+               class="form-control"
+               placeholder="http://images.google.com"
+               value="http://images.google.com"
+               id="widgetURL">
+
+        <label for="widgetWidth">Width</label>
+        <input name="widgetWidth"
+               type="number"
+               class="form-control"
+               placeholder="50%"
+               value="50%"
+               id="widgetWidth">
+
+        <label for="widgetImage">Image</label>
+        <input name="widgetImage"
+               type="file"
+               class="form-control"
+               placeholder="image.jpg"
+               value="image.jpg"
+               id="widgetImage">
+
+        <a class="btn btn-block btn-danger" href="widget-list.html" role="button">Delete</a>
+
+    </div>
+
+
+    <nav class="navbar navbar-page-color navbar-fixed-bottom">
+
+        <div class="navbar-header">
+
+
+            <a class="navbar-brand"></a>
+
+            <a href="profile.html">
+                <span class="pull-right glyphicon glyphicon-user black-icons btn-lg"></span>
+            </a>
+
+        </div>
+
+    </nav>
+
 </body>
+
 </html>
