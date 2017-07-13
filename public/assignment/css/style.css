@@ -1,17 +1,23 @@
-input {
+input, textarea {
 
     margin-bottom: 5px;
+}
+
+
+.white-icons {
+    color: white;
 }
 
 body {
 
     padding-top: 60px;
+    padding-bottom: 60px;
 
 }
 
-.navbar-header {
+.navbar-default {
 
-    background-color: #235786;
+    background: #235786;
     border-color: #235786;
 
 }
@@ -19,3 +25,49 @@ body {
 .navbar-default .navbar-brand {
     color: white;
 }
+
+@media (min-width: 1200px) {
+
+    .col-lg-3.ab-split-left {
+        position: absolute;
+        top: 60px;
+        bottom: 0px;
+        overflow-y: scroll;
+        z-index: 1
+    }
+
+
+    .col-lg-9.ab-split-right {
+        position: absolute;
+        width: 75%;
+        right: 0px;
+        top: 60px;
+        bottom: 0px;
+        overflow-y: scroll;
+    }
+}
+
+@media (min-width: 768px) {
+
+    .navbar-header {
+        width: 100%;
+    }
+}
+
+.navbar-page-color {
+    background: beige;
+}
+
+.navbar-page-color .navbar-brand {
+    color: black;
+}
+
+.black-icons {
+    color: black;
+}
+
+a:hover{
+
+    text-decoration: none;
+}
+
