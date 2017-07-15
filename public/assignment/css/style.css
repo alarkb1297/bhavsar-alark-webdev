@@ -3,15 +3,22 @@ input, textarea {
     margin-bottom: 5px;
 }
 
-.ab-white-icons {
-    color: white;
-}
-
 body {
 
     padding-top: 60px;
     padding-bottom: 60px;
 
+}
+
+ul {
+    list-style-type: none;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+    max-height: 100%;
+    max-width: 100%;
 }
 
 .navbar-default {
@@ -22,6 +29,74 @@ body {
 }
 
 .navbar-default .navbar-brand {
+    color: white;
+}
+
+.navbar-page-color {
+    background: beige;
+}
+
+.navbar-page-color .navbar-brand {
+    color: black;
+}
+
+a:hover {
+
+    text-decoration: none;
+}
+
+a.list-group-item {
+    color: #337ab7;
+}
+
+.list-group-item {
+    border: 0px;
+}
+
+.list-group-item.active {
+    background-image: linear-gradient(to bottom, #2e6798 0, #ffffff 100%);
+}
+
+.list-group-item.active:hover {
+    background-image: linear-gradient(to bottom, #2e6798 0, #ffffff 100%);
+}
+
+.videoWrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+}
+
+.videoWrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.ab-black-icons {
+    color: black;
+}
+
+.ab-glyphicon-overlapping-content {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding-bottom: 5px;
+    padding-left: 3px;
+    background-color: white;
+    border-bottom-left-radius: 20%;
+    z-index: 1;
+}
+
+.ab-widget-div {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.ab-white-icons {
     color: white;
 }
 
@@ -50,79 +125,4 @@ body {
     .navbar-header {
         width: 100%;
     }
-}
-
-.navbar-page-color {
-    background: beige;
-}
-
-.navbar-page-color .navbar-brand {
-    color: black;
-}
-
-.ab-black-icons {
-    color: black;
-}
-
-a:hover {
-
-    text-decoration: none;
-}
-
-a.list-group-item {
-    color: #337ab7;
-}
-
-.list-group-item {
-    border: 0px;
-}
-
-.list-group-item.active {
-    background-image: linear-gradient(to bottom, #2e6798 0, #ffffff 100%);
-}
-
-.list-group-item.active:hover {
-    background-image: linear-gradient(to bottom, #2e6798 0, #ffffff 100%);
-}
-
-ul {
-    list-style-type: none;
-}
-
-img {
-    display: block;
-    margin: 0 auto;
-    max-height: 100%;
-    max-width: 100%;
-}
-
-.ab-glyphicon-overlapping-content {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    padding-bottom: 5px;
-    padding-left: 3px;
-    background-color: white;
-    border-bottom-left-radius: 20%;
-    z-index: 1;
-}
-
-.ab-widget-div {
-    position: relative;
-    margin-bottom: 20px;
-}
-
-.videoWrapper {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 */
-    padding-top: 25px;
-    height: 0;
-}
-
-.videoWrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
 }
