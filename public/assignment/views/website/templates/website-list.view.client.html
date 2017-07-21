@@ -1,0 +1,120 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+
+    <div class="navbar-header">
+
+        <a href="#!/profile/{{model.userID}}">
+            <span class="pull-left glyphicon glyphicon-chevron-left ab-white-icons btn-lg"></span>
+        </a>
+
+        <a class="navbar-brand">Website List</a>
+    </div>
+</nav>
+
+
+<div class="container-fluid">
+
+    <ul class="list-group">
+
+        <li class="list-group-item active">
+            <div class="row">
+                <div class="col-xs-10 col-sm-5 col-md-4 col-lg-4">Name</div>
+                <div class="hidden-xs col-sm-5 col-md-4 col-lg-4">Updated</div>
+                <div class="hidden-xs hidden-sm col-md-2 col-lg-2">Visits</div>
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                    <a href="#!/user/{{model.userID}}/website/new">
+                        <span class="pull-right glyphicon glyphicon-plus ab-white-icons"></span>
+                    </a>
+                </div>
+            </div>
+        </li>
+
+
+        <!--<li class="list-group-item">
+            <div class="row">
+                <div class="col-xs-10 col-sm-5 col-md-4 col-lg-4">
+                    <a href="../page/page-list.client.view.html">
+                        Facebook
+                    </a>
+                </div>
+                <div class="hidden-xs col-sm-5 col-md-4 col-lg-4">2017-07-05</div>
+                <div class="hidden-xs hidden-sm col-md-2 col-lg-2">3,123,123</div>
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                    <a hrwebsite-edit.view.client.htmlhtml">
+                        <span class="pull-right glyphicon glyphicon-cog"></span>
+                    </a>
+                </div>
+            </div>
+        </li>
+
+
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-xs-10 col-sm-5 col-md-4 col-lg-4">
+                    <a href="../page/page-list.client.view.html">
+                        Wikipedia
+                    </a>
+                </div>
+                <div class="hidden-xs col-sm-5 col-md-4 col-lg-4"></div>
+                <div class="hidden-xs hidden-sm col-md-2 col-lg-2"></div>
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                    <a hrwebsite-edit.view.client.htmlhtml">
+                        <span class="pull-right glyphicon glyphicon-cog"></span>
+                    </a>
+                </div>
+            </div>
+        </li>
+
+
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-xs-10 col-sm-5 col-md-4 col-lg-4">
+                    <a href="../page/page-list.client.view.html">
+                        Twitter
+                    </a>
+                </div>
+                <div class="hidden-xs col-sm-5 col-md-4 col-lg-4"></div>
+                <div class="hidden-xs hidden-sm col-md-2 col-lg-2"></div>
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                    <a hrwebsite-edit.view.client.htmlhtml">
+                        <span class="pull-right glyphicon glyphicon-cog"></span>
+                    </a>
+                </div>
+            </div>
+        </li>-->
+
+
+        <li ng-repeat="website in model.websites" class="list-group-item">
+            <div class="row">
+                <div class="col-xs-10 col-sm-5 col-md-4 col-lg-4">
+                    <a href="#!/user/{{model.userID}}/website/{{website.name}}">
+                        {{website.name}}
+                    </a>
+                </div>
+                <div class="hidden-xs col-sm-5 col-md-4 col-lg-4"></div>
+                <div class="hidden-xs hidden-sm col-md-2 col-lg-2"></div>
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                    <a href="#!/user/{{model.userID}}/website/{{model.webID}}">
+                        <span class="pull-right glyphicon glyphicon-cog"></span>
+                    </a>
+                </div>
+            </div>
+        </li>
+    </ul>
+
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+
+    <div class="navbar-header">
+
+
+        <a class="navbar-brand"></a>
+
+        <a href="#!/profile/{{model.userID}}">
+            <span class="pull-right glyphicon glyphicon-user ab-white-icons btn-lg"></span>
+        </a>
+
+    </div>
+
+</nav>
+

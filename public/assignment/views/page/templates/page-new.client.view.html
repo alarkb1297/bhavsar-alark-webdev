@@ -3,27 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../vendor/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="../../../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../../vendor/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="../../css/style.css" rel="stylesheet">
 
-    <title>Edit Website</title>
+    <title>Edit Page</title>
 </head>
 
 <body>
 
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-page-color navbar-fixed-top">
 
         <div class="navbar-header">
 
-            <a href="website-list.html">
-                <span class="pull-left glyphicon glyphicon-chevron-left ab-white-icons btn-lg"></span>
+            <a href="page-list.client.view.html">
+                <span class="pull-left glyphicon glyphicon-chevron-left ab-black-icons btn-lg"></span>
             </a>
 
-            <a class="navbar-brand">Edit Website</a>
+            <a class="navbar-brand">Edit Page</a>
 
-            <a href="website-list.html">
-                <span class="pull-right glyphicon glyphicon-ok ab-white-icons btn-lg"></span>
+            <a href="page-list.client.view.html">
+                <span class="pull-right glyphicon glyphicon-ok ab-black-icons btn-lg"></span>
             </a>
 
         </div>
@@ -36,13 +36,14 @@
 
             <div class="col-md-3 visible-md visible-lg ab-split-left">
 
+
                 <ul class="list-group">
 
                     <li class="list-group-item active">
                         <div class="row">
                             <div class="col-xs-10">Name</div>
                             <div class="col-xs-2">
-                                <a href="website-new.html">
+                                <a href="page-new.client.view.html">
                                     <span class="pull-right glyphicon glyphicon-plus ab-white-icons"></span>
                                 </a>
                             </div>
@@ -53,12 +54,12 @@
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col-xs-10">
-                                <a href="page-list.html">
-                                    Facebook
+                                <a href="../widget/widget-list.view.client.html">
+                                    Page 1
                                 </a>
                             </div>
                             <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                                <a href="website-edit.html">
+                                <a href="page-edit.client.view.html">
                                     <span class="pull-right glyphicon glyphicon-cog"></span>
                                 </a>
                             </div>
@@ -69,12 +70,12 @@
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col-xs-10">
-                                <a href="page-list.html">
-                                    Wikipedia
+                                <a href="../widget/widget-list.view.client.html">
+                                    Page 2
                                 </a>
                             </div>
                             <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                                <a href="website-edit.html">
+                                <a href="page-edit.client.view.html">
                                     <span class="pull-right glyphicon glyphicon-cog"></span>
                                 </a>
                             </div>
@@ -85,12 +86,12 @@
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col-xs-10">
-                                <a href="page-list.html">
-                                    Twitter
+                                <a href="../widget/widget-list.view.client.html">
+                                    Page 3
                                 </a>
                             </div>
                             <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                                <a href="website-edit.html">
+                                <a href="page-edit.client.view.html">
                                     <span class="pull-right glyphicon glyphicon-cog"></span>
                                 </a>
                             </div>
@@ -101,12 +102,12 @@
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col-xs-10">
-                                <a href="page-list.html">
-                                    Amazon
+                                <a href="../widget/widget-list.view.client.html">
+                                    Page 4
                                 </a>
                             </div>
                             <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                                <a href="website-edit.html">
+                                <a href="page-edit.client.view.html">
                                     <span class="pull-right glyphicon glyphicon-cog"></span>
                                 </a>
                             </div>
@@ -118,36 +119,34 @@
 
             <div class="col-md-9 col-xs-12 ab-split-right">
 
-                <label for="name">Name</label>
-                <input name="websiteName"
+                <label for="pageName">Name</label>
+                <input name="pageName"
                        class="form-control"
-                       placeholder="Facebook"
-                       value="Facebook"
-                       id="name"/>
+                       placeholder="Page Name"
+                       id="pageName"/>
 
-                <label for="description">Description</label>
-                <textarea name="websiteDescription"
-                          row="5"
+                <label for="pageTitle">Title</label>
+                <input name="pageTitle"
                           class="form-control"
-                          placeholder="Description"
-                          id="description">Largest social networking site with more than x users</textarea>
+                          placeholder="Page Title"
+                          id="pageTitle"/>
 
-                <a class="btn btn-block btn-danger" href="website-list.html" role="button">Delete</a>
+                <a class="btn btn-block btn-danger" href="page-list.client.view.html" role="button">Delete</a>
             </div>
 
         </div>
 
     </div>
 
-    <nav class="navbar navbar-default navbar-fixed-bottom">
+    <nav class="navbar navbar-page-color navbar-fixed-bottom">
 
         <div class="navbar-header">
 
 
             <a class="navbar-brand"></a>
 
-            <a href="profile.html">
-                <span class="pull-right glyphicon glyphicon-user ab-white-icons btn-lg"></span>
+            <a href="../user/templates/profile.view.client.html">
+                <span class="pull-right glyphicon glyphicon-user ab-black-icons btn-lg"></span>
             </a>
 
         </div>

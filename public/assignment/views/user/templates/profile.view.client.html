@@ -1,23 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../vendor/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-
-    <title>Profile</title>
-</head>
-
-<body>
-
-    <nav class="navbar navbar-default navbar-fixed-top">
+<div>
+    <nav class="navbar navbar-default navbar-fixed-top" ng-controller="profileController">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <a class="navbar-brand">Profile</a>
 
-            <a href="profile.html">
+            <a href="profile.view.client.html">
                 <span class="pull-right glyphicon glyphicon-ok ab-white-icons btn-lg"></span>
             </a>
         </div>
@@ -29,17 +16,20 @@
         <input name="firstName"
                class="form-control"
                placeholder="Alice"
+               ng-model="model.user.firstName"
                id="firstName"/>
 
         <label for="lastName">Last Name</label>
         <input name="username"
                class="form-control"
+               ng-model="model.user.lastName"
                placeholder="Wonderland"
                id="lastName"/>
 
         <label for="username">Username</label>
         <input name="username"
                class="form-control"
+               ng-model="model.user.username"
                value="Alice"
                readonly
                id="username"/>
@@ -60,13 +50,11 @@
                id="dob"/>
 
 
-        <div class="container">
-            <a class="btn btn-block btn-primary" href="website-list.html" role="button">Websites</a>
-            <a class="btn btn-block btn-danger" href="login.html" role="button">Logout</a>
-        </div>
+        <a class="btn btn-block btn-primary" href="#!/user/{{model.user_id}}/website" role="button">Websites</a>
+        <a class="btn btn-block btn-primary" ng-click="model.updateUser()" role="button">Update</a>
+        <a class="btn btn-block btn-danger" ng-click="model.unregister()" role="button">Unregister</a>
+        <a class="btn btn-block btn-danger" href="#!/login" role="button">Logout</a>
+
 
     </div>
-
-
-</body>
-</html>
+</div>

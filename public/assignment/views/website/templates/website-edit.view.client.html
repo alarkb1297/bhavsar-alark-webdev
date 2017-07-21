@@ -1,0 +1,141 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+
+    <div class="navbar-header">
+
+        <a href="website-list.view.client.html">
+            <span class="pull-left glyphicon glyphicon-chevron-left ab-white-icons btn-lg"></span>
+        </a>
+
+        <a class="navbar-brand">Edit Website</a>
+
+        <a href="website-list.view.client.html">
+            <span class="pull-right glyphicon glyphicon-ok ab-white-icons btn-lg"></span>
+        </a>
+
+    </div>
+
+</nav>
+
+<div class="container-fluid">
+
+    <div class="row">
+
+        <div class="col-md-3 visible-md visible-lg ab-split-left">
+
+            <ul class="list-group">
+
+                <li class="list-group-item active">
+                    <div class="row">
+                        <div class="col-xs-10">Name</div>
+                        <div class="col-xs-2">
+                            <a href="#!/user/{{model.userID}}/website/new">
+                                <span class="pull-right glyphicon glyphicon-plus ab-white-icons"></span>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+
+
+                <!--<li class="list-group-item">
+                    <div class="row">
+                        <div class="col-xs-10">
+                            <a href="../page/page-list.client.view.html">
+                                Facebook
+                            </a>
+                        </div>
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                            <a href="website-edit.view.client.html">
+                                <span class="pull-right glyphicon glyphicon-cog"></span>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+
+
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-xs-10">
+                            <a href="../page/page-list.client.view.html">
+                                Wikipedia
+                            </a>
+                        </div>
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                            <a href="website-edit.view.client.html">
+                                <span class="pull-right glyphicon glyphicon-cog"></span>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+
+
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-xs-10">
+                            <a href="../page/page-list.client.view.html">
+                                Twitter
+                            </a>
+                        </div>
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                            <a href="website-edit.view.client.html">
+                                <span class="pull-right glyphicon glyphicon-cog"></span>
+                            </a>
+                        </div>
+                    </div>
+                </li>-->
+
+
+                <li ng-repeat="website in model.websites" class="list-group-item">
+                    <div class="row">
+                        <div class="col-xs-10">
+                            <a href="#!/user/{{model.userID}}/website/{{website.name}}">
+                                {{website.name}}
+                            </a>
+                        </div>
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                            <a href="#!/user/{{model.userID}}/website/{{model.webID}}">
+                                <span class="pull-right glyphicon glyphicon-cog"></span>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="col-md-9 col-xs-12 ab-split-right">
+
+            <label for="name">Name</label>
+            <input name="websiteName"
+                   class="form-control"
+                   placeholder="Facebook"
+                   value="Facebook"
+                   id="name"/>
+
+            <label for="description">Description</label>
+            <textarea name="websiteDescription"
+                      row="5"
+                      class="form-control"
+                      placeholder="Description"
+                      id="description">Largest social networking site with more than x users</textarea>
+
+            <a class="btn btn-block btn-danger" href="website-list.view.client.html" role="button">Delete</a>
+        </div>
+
+    </div>
+
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+
+    <div class="navbar-header">
+
+
+        <a class="navbar-brand"></a>
+
+        <a href="../user/templates/profile.view.client.html">
+            <span class="pull-right glyphicon glyphicon-user ab-white-icons btn-lg"></span>
+        </a>
+
+    </div>
+
+</nav>
