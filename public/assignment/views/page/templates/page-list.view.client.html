@@ -1,12 +1,14 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-page-color navbar-fixed-top">
 
     <div class="navbar-header">
 
-        <a href="#!/profile/{{model.userID}}">
-            <span class="pull-left glyphicon glyphicon-chevron-left ab-white-icons btn-lg"></span>
+        <a href="#!/profile/{{model.userID}}/website">
+            <span class="pull-left glyphicon glyphicon-chevron-left ab-black-icons btn-lg"></span>
         </a>
 
-        <a class="navbar-brand">Website List</a>
+        <a class="navbar-brand">Page List</a>
+
+
     </div>
 </nav>
 
@@ -21,24 +23,25 @@
                 <div class="hidden-xs col-sm-5 col-md-4 col-lg-4">Updated</div>
                 <div class="hidden-xs hidden-sm col-md-2 col-lg-2">Visits</div>
                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                    <a href="#!/user/{{model.userID}}/website/new">
+                    <a href="#!/user/{{model.userID}}/website/{{model.webID}}/page/new">
                         <span class="pull-right glyphicon glyphicon-plus ab-white-icons"></span>
                     </a>
                 </div>
             </div>
         </li>
 
-        <li ng-repeat="website in model.websites track by $index" class="list-group-item">
+
+        <li ng-repeat="page in model.pages track by $index" class="list-group-item">
             <div class="row">
                 <div class="col-xs-10 col-sm-5 col-md-4 col-lg-4">
-                    <a href="#!/user/{{model.userID}}/website/{{website._id}}/page">
-                        {{website.name}}
+                    <a href="#!/user/{{model.userID}}/website/{{model.webID}}/page">
+                        {{page.name}}
                     </a>
                 </div>
                 <div class="hidden-xs col-sm-5 col-md-4 col-lg-4"></div>
                 <div class="hidden-xs hidden-sm col-md-2 col-lg-2"></div>
                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                    <a href="#!/user/{{model.userID}}/website/{{website._id}}">
+                    <a href="#!/user/{{model.userID}}/website/{{model.webID}}/page/{{page._id}}">
                         <span class="pull-right glyphicon glyphicon-cog"></span>
                     </a>
                 </div>
@@ -48,7 +51,7 @@
 
 </div>
 
-<nav class="navbar navbar-default navbar-fixed-bottom">
+<nav class="navbar navbar-page-color navbar-fixed-bottom">
 
     <div class="navbar-header">
 
@@ -56,10 +59,9 @@
         <a class="navbar-brand"></a>
 
         <a href="#!/profile/{{model.userID}}">
-            <span class="pull-right glyphicon glyphicon-user ab-white-icons btn-lg"></span>
+            <span class="pull-right glyphicon glyphicon-user ab-black-icons btn-lg"></span>
         </a>
 
     </div>
 
 </nav>
-

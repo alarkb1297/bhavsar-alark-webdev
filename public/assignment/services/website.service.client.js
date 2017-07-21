@@ -54,14 +54,13 @@
 
                 if (websites[w]._id == webID) {
                     return angular.copy(websites[w]);
+                    //return websites[w];
                 }
             }
             return;
         }
 
         function updateWebsite(webID, website) {
-
-            console.log(websites);
 
             for (var w in websites) {
                 if (websites[w]._id == webID) {
@@ -77,7 +76,7 @@
 
             for (var w in websites) {
                 if (websites[w]._id == webID) {
-                    websites.splice(w)
+                    websites.splice(w, 1)
                     return;
                 }
             }

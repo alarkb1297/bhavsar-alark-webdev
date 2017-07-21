@@ -2,7 +2,7 @@
 
     <div class="navbar-header">
 
-        <a href="../page/templates/page-list.client.view.html">
+        <a href="../../page/templates/page-list.view.client.html">
             <span class="pull-left glyphicon glyphicon-chevron-left ab-black-icons btn-lg"></span>
         </a>
 
@@ -20,7 +20,7 @@
 <div class="container-fluid">
 
 
-    <div class="ab-widget-div">
+    <!--<div class="ab-widget-div">
         <div class="ab-glyphicon-overlapping-content">
             <a href="widget-heading.view.client.html">
                 <span class="glyphicon glyphicon-cog"></span>
@@ -109,6 +109,21 @@
             crazy speeds. Or by making that target a small ring that you have to somehow fly through. Or by
             lighting that ring on fire. Or by... actually, that should be extreme enough for now.
         </p>
+    </div>-->
+
+
+    <div ng-repeat="widget in model.widgets">
+        <div ng-switch="widget.widgetType">
+            <div ng-switch-when="HEADING">
+                <ng-include src="'widget-heading.view.client.html'">
+            </div>
+            <div ng-switch-when="IMAGE">
+                <ng-include src="'widget-image.view.client.html'">
+            </div>
+            <div ng-switch-when="YOUTUBE">
+                <ng-include src="'widget-youtube.view.client.html'">
+            </div>
+        </div>
     </div>
 
 
@@ -122,7 +137,7 @@
         <span class="glyphicon glyphicon-play ab-black-icons btn-sm"></span>
         <span class="glyphicon glyphicon-eye-open ab-black-icons btn-sm"></span>
 
-        <a href="../user/templates/profile.view.client.html">
+        <a href="../../user/templates/profile.view.client.html">
             <span class="pull-right glyphicon glyphicon-user ab-black-icons btn-lg"></span>
         </a>
 

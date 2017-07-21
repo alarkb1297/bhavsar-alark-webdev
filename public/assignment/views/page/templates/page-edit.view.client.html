@@ -1,0 +1,97 @@
+<nav class="navbar navbar-page-color navbar-fixed-top">
+
+    <div class="navbar-header">
+
+        <a href="#!/user/{{model.userID}}/website/{{model.webID}}/page">
+            <span class="pull-left glyphicon glyphicon-chevron-left ab-black-icons btn-lg"></span>
+        </a>
+
+        <a class="navbar-brand">Edit Page</a>
+
+        <a ng-click="model.updatePage(model.page)">
+            <span class="pull-right glyphicon glyphicon-ok ab-black-icons btn-lg"></span>
+        </a>
+
+    </div>
+
+</nav>
+
+<div class="container-fluid">
+
+    <div class="row">
+
+        <div class="col-md-3 visible-md visible-lg ab-split-left">
+
+
+            <ul class="list-group">
+
+                <li class="list-group-item active">
+                    <div class="row">
+                        <div class="col-xs-10">Name</div>
+                        <div class="col-xs-2">
+                            <a href="#!/user/{{model.userID}}/website/{{model.webID}}/page/new">
+                                <span class="pull-right glyphicon glyphicon-plus ab-white-icons"></span>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+
+
+                <li ng-repeat="page in model.pages track by $index" class="list-group-item">
+                    <div class="row">
+                        <div class="col-xs-10">
+                            <a href="#!/user/{{model.userID}}/website/{{model.webID}}/page">
+                                {{page.name}}
+                            </a>
+                        </div>
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                            <a href="#!/user/{{model.userID}}/website/{{model.webID}}/page/{{page._id}}">
+                                <span class="pull-right glyphicon glyphicon-cog"></span>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="col-md-9 col-xs-12 ab-split-right">
+
+            <label for="pageName">Name</label>
+            <input name="pageName"
+                   ng-model="model.page.name"
+                   class="form-control"
+                   placeholder="Page Name"
+                   value="Page 1"
+                   id="pageName"/>
+
+            <label for="pageTitle">Title</label>
+            <input name="pageTitle"
+                   ng-model="model.page.description"
+                   class="form-control"
+                   placeholder="Page Title"
+                   id="pageTitle"/>
+
+            <a class="btn btn-block btn-danger"
+               ng-click="model.deletePage(model.pageID)"
+               role="button">Delete</a>
+        </div>
+
+    </div>
+
+</div>
+
+<nav class="navbar navbar-page-color navbar-fixed-bottom">
+
+    <div class="navbar-header">
+
+
+        <a class="navbar-brand"></a>
+
+        <a href="../../user/templates/profile.view.client.html">
+            <span class="pull-right glyphicon glyphicon-user ab-black-icons btn-lg"></span>
+        </a>
+
+    </div>
+
+</nav>

@@ -50,26 +50,26 @@
 
             //page routes
             .when("/user/:userID/website/:webID/page", {
-                templateUrl: "views/page/page-list.view.client.html",
+                templateUrl: "views/page/templates/page-list.view.client.html",
                 controller: "pageListController",
                 controllerAs: "model"
             })
 
             .when("/user/:userID/website/:webID/page/new", {
-                templateUrl: "views/page/page-new.view.client.html",
+                templateUrl: "views/page/templates/page-new.view.client.html",
                 controller: "pageNewController",
                 controllerAs: "model"
             })
 
             .when("/user/:userID/website/:webID/page/:pageID", {
-                templateUrl: "views/page/page-edit.view.client.html",
+                templateUrl: "views/page/templates/page-edit.view.client.html",
                 controller: "pageEditController",
                 controllerAs: "model"
             })
 
             //wigdet routes
             .when("/user/:userID/website/:webID/page/:pageID/widget", {
-                templateUrl: "views/widget/widget-list.view.client.html",
+                templateUrl: "views/widget/templates/widget-list.view.client.html",
                 controller: "widgetListController",
                 controllerAs: "model"
             })

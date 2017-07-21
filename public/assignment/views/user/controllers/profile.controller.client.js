@@ -28,6 +28,8 @@
         
         function updateUser(user) {
             userService.updateUser(user._id, user);
+            $location.url("/profile/" + model.userID);
+
         }
         
         function deleteUser(userID) {

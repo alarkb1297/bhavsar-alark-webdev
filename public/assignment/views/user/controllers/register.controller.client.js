@@ -25,7 +25,7 @@
 
         function registerUser(user) {
 
-            if (!user.password || !user.password2) {
+            if (user == null || !user.username || !user.password || !user.password2) {
                 model.errorMessage = "Blank Fields Detected";
                 return;
             }
