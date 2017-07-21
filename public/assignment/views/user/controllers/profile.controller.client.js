@@ -10,28 +10,30 @@
 
 
 
-    function profileController($routeParams, userService) {
+    function profileController($routeParams, userService, $location) {
 
         var model = this;
+
+        model.userID = $routeParams.userID;
 
         var userID = $routeParams["userID"];
         
         model.updateUser = updateUser;
-        model.unregister = unregister;
+        model.deleteUser = deleteUser;
 
         function init() {
             model.user = userService.findUserByID(userID);
         }
         init();
         
-        function updateUser() {
-            
+        function updateUser(user) {
+            userService.updateUser(user._id, user);
         }
         
-        function unregister() {
-            
+        function deleteUser(userID) {
+            userService.deleteUser(userID);
+            $location.url("/login");
         }
-        
 
     }
 

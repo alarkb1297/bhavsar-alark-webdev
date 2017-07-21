@@ -8,22 +8,17 @@
         .module("WamApp")
         .controller("websiteListController", websiteListController);
 
-
-    function websiteListController($routeParams) {
-
+    function websiteListController($routeParams, websiteService) {
         var model = this;
 
         model.userID = $routeParams.userID;
-
+        model.webID = $routeParams.webID;
 
         function init() {
-            model.websites = websiteService.findWebsitesByUser(user);
+            model.websites = websiteService.findWebsitesForUser(model.userID);
         }
-        init()
-
-
+        init();
 
     }
 
-
-})()
+})();

@@ -2,9 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>On Click Events</title>
 </head>
 <body>
-    $END$
+
+    <script>
+
+        function sayHello() {
+            alert("Hello World");
+        }
+
+        function sayMessage(message) {
+            alert(message);
+        }
+
+        function sayInput() {
+            var message = document.getElementById("message").value;
+            alert(message);
+        }
+
+
+
+    </script>
+
+    <h1>On Click Event Handling</h1>
+
+    <button onclick="sayHello()">Say Hello</button>
+
+    <button onclick="sayMessage('message this is')">Say Message</button>
+
+    <input id="message" type="text"/>
+    <button onclick="sayInput()">Say Message</button>
+
 </body>
 </html>

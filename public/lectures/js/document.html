@@ -2,9 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Intro To Dccument Object</title>
+
+    <script>
+        document.write("Hello World");
+    </script>
+
+
 </head>
 <body>
-    $END$
+
+    <h1>Hello World</h1>
+
+    script begins
+    <script>
+        document.write("<ul>")
+        for (var x = 0; x <= 10; ++x) {
+            document.write("<li> Hello " + x + "</li>");
+        }
+        document.write("</ul>")
+    </script>
+
+
+    table example
+    <script>
+
+        for (var row = 1; row <=10; row++) {
+            document.write("<tr>");
+
+            for (var col = 1; col <=10; col++) {
+                document.write("<td>");
+                document.write(col * row);
+                document.write("</td>");
+            }
+
+            document.write("</tr>");
+        }
+
+    </script>
+
+
+    <tr><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+    <tr><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+
 </body>
 </html>

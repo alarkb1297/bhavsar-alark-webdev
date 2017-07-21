@@ -6,89 +6,80 @@
 
     angular
         .module("WamApp")
-        .factory("userService", userService);
+        .factory("pageService", pageService);
 
-    function userService() {
+    function pageService() {
 
         //JSON = JS Object Notation
-        var users = [
-            {_id: "123", username: "alice", password: "alice", firstName: "Alice", lastName: "Wonder"},
-            {_id: "234", username: "bob", password: "bob", firstName: "Bob", lastName: "Marley"},
-            {_id: "345", username: "charly", password: "charly", firstName: "Charly", lastName: "Garcia"},
-            {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose", lastName: "Annunzi"}
-        ];
+        var pages = [
+                { "_id": "321", "name": "Post 1", "websiteId": "456", "description": "Lorem" },
+                { "_id": "432", "name": "Post 2", "websiteId": "456", "description": "Lorem" },
+                { "_id": "543", "name": "Post 3", "websiteId": "456", "description": "Lorem" }
+            ]
+        ;
 
         var api = {
-            "findUserByUsername" : findUserByUsername,
-            "findUserByUsernameAndPassword" : findUserByUsernameAndPassword,
-            "findUserByID" : findUserByID,
-            "registerUser" : registerUser,
-            "updateUser" : updateUser,
-            "deleteUser" : deleteUser
+            "createPage" : createPage,
+            "findPageByWebsiteId" : findPageByWebsiteId,
+            "findPageById" : findPageById,
+            "deletePage" : deletePage,
+            "updatePage" : updatePage
         };
         return api;
 
-        function findUserByID(userID) {
+        function createPage(webID, page) {
+            page._id = (new Date()).getTime() + "";
+            page.websiteID = webID;
 
-            for (var u in users) {
-                var _user = users[u];
-                if (_user._id == userID) {
-                   return _user;
+            pages.push(page);
+
+            return page;
+        }
+
+        function findPageByWebsiteId(webID) {
+
+            var pgs = [];
+
+            for (var p in pages) {
+                if (pages[p].websiteId == webID) {
+                    pgs.push(pages[p])
                 }
             }
+            return pgs;
+        }
 
+        function findPageById(pageID) {
+
+            for (var p in pages) {
+                if (pages[p]._id == pageID) {
+                    return pages[p];
+                }
+            }
+            return ;
+        }
+
+        function updatePage(pageID, page) {
+
+            for(var p in pages) {
+                if(pages[p]._id == pageID) {
+                    pages[p] = page;
+                    return pages[p];
+                }
+            }
             return null;
         }
 
-        function findUserByUsernameAndPassword(username, password) {
+        function deletePage(pageID) {
 
-            for (var u in users) {
-                var _user = users[u];
-                if (_user.username == username && _user.password == password) {
-                    return _user;
-                }
-            }
-            return null;
-        }
-
-        function findUserByUsername(username) {
-
-            for (var u in users) {
-                var _user = users[u];
-                if (_user.username == username) {
-                    return _user;
-                }
-            }
-            return null;
-        }
-
-        function updateUser(userID, user) {
-            for(var u in users) {
-                if(users[u]._id == userID) {
-                    users[u] = user;
-                    return users[u];
-                }
-            }
-            return null;
-        }
-
-        function registerUser(user) {
-            user._id = (new Date()).getTime() + "";
-            users.push(user);
-            return user;
-        }
-
-        function deleteUser(userID) {
-
-            for(var u in users) {
-                if(users[u]._id == userID) {
-                    users.splice(u)
+            for(var p in pages) {
+                if(pages[p]._id == pageID) {
+                    page.splice(p)
                     return;
                 }
             }
-            return null;
-
+            return;
         }
+
 
     }
 

@@ -19,6 +19,7 @@
         function init() {
 
         }
+
         init();
 
 
@@ -34,11 +35,17 @@
                 return;
             }
 
+            var _user = userService.findUserByUsername(user.username);
 
+            if (!_user) {
+                var user = userService.registerUser(user);
+                $location.url("/profile/" + user._id);
+                return user;
+            } else {
+                model.error = "User already exists";
+                return;
+            }
 
-           //var user = userService.registerUser(user);
-
-           //$location.url("/profile/" + user._id);
         }
     }
 

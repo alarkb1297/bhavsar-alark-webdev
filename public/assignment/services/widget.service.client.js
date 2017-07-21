@@ -6,80 +6,82 @@
 
     angular
         .module("WamApp")
-        .factory("pageService", pageService);
+        .factory("widgetService", widgetService);
 
-    function pageService() {
+    function widgetService() {
 
-        //JSON = JS Object Notation
-        var pages = [
-                { "_id": "321", "name": "Post 1", "websiteId": "456", "description": "Lorem" },
-                { "_id": "432", "name": "Post 2", "websiteId": "456", "description": "Lorem" },
-                { "_id": "543", "name": "Post 3", "websiteId": "456", "description": "Lorem" }
-            ]
-        ;
+        var widgets = [
+                { "_id": "123", "widgetType": "HEADING", "pageId": "321", "size": 2, "text": "GIZMODO"},
+                { "_id": "234", "widgetType": "HEADING", "pageId": "321", "size": 4, "text": "Lorem ipsum"},
+                { "_id": "345", "widgetType": "IMAGE", "pageId": "321", "width": "100%",
+                    "url": "http://lorempixel.com/400/200/"},
+                { "_id": "456", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"},
+                { "_id": "567", "widgetType": "HEADING", "pageId": "321", "size": 4, "text": "Lorem ipsum"},
+                { "_id": "678", "widgetType": "YOUTUBE", "pageId": "321", "width": "100%",
+                    "url": "https://youtu.be/AM2Ivdi9c4E" },
+                { "_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"}
+            ];
 
         var api = {
-            "createPage" : createPage,
-            "findPageByWebsiteId" : findPageByWebsiteId,
-            "findPageById" : findPageById,
-            "deletePage" : deletePage,
-            "updatePage" : updatePage
+            "createWidget" : createWidget,
+            "findWidgetsByPageId" : findWidgetsByPageId,
+            "findWidgetById" : findWidgetById,
+            "deleteWidget" : deleteWidget,
+            "updateWidget" : updateWidget
         };
         return api;
 
-        function createPage(webID, page) {
-            page._id = (new Date()).getTime() + "";
-            page.websiteID = webID;
+        function createWidget(pageID, widget) {
+            widget._id = (new Date()).getTime() + "";
+            widget.pageId = pageID;
 
-            pages.push(page);
+            widgets.push(widget);
 
-            return page;
+            return widget;
         }
 
-        function findPageByWebsiteId(webID) {
+        function findWidgetsByPageId(pageID) {
 
-            var pgs = [];
+            var wdgts = [];
 
-            for (var p in pages) {
-                if (pages[p].websiteId == webID) {
-                    pgs.push(pages[p])
+            for (var w in widgets) {
+                if (widgets[w].pageId == pageID) {
+                    wdgts.push(widgets[w]);
                 }
             }
-            return pgs;
+            return wdgts;
         }
 
-        function findPageById(pageID) {
+        function findWidgetById(widgetID) {
 
-            var pgs = [];
-
-            for (var p in pages) {
-                if (pages[p]._id == pageID) {
-                    pgs.push(pages[p])
+            for (var w in widgets) {
+                if (widgets[w]._id == widgetID) {
+                    return widgets[w];
                 }
             }
-            return pgs;
+            return ;
         }
 
-        function updatePage(pageID, page) {
+        function updateWidget(widgetID, widget) {
 
-            for(var p in pages) {
-                if(pages[p]._id == pageID) {
-                    pages[p] = page;
-                    return pages[p];
+            for (var w in widgets) {
+                if (widgets[w]._id == widgetID) {
+                    widgets[w] = widget;
+                    return widgets[w];
                 }
             }
             return null;
         }
 
-        function deletePage(pageID) {
+        function deleteWidget(widgetID) {
 
-            for(var p in pages) {
-                if(pages[p]._id == pageID) {
-                    page.splice(p)
+            for (var w in widgets) {
+                if (widgets[w]._id == widgetID) {
+                    widgets.splice(u)
                     return;
                 }
             }
-            return;
+            return null;
         }
 
     }

@@ -2,13 +2,13 @@
 
     <div class="navbar-header">
 
-        <a href="website-list.view.client.html">
+        <a href="#!/user/{{model.userID}}/website">
             <span class="pull-left glyphicon glyphicon-chevron-left ab-white-icons btn-lg"></span>
         </a>
 
         <a class="navbar-brand">Edit Website</a>
 
-        <a href="website-list.view.client.html">
+        <a ng-click="model.updateWebsite(model.website)">
             <span class="pull-right glyphicon glyphicon-ok ab-white-icons btn-lg"></span>
         </a>
 
@@ -35,56 +35,7 @@
                     </div>
                 </li>
 
-
-                <!--<li class="list-group-item">
-                    <div class="row">
-                        <div class="col-xs-10">
-                            <a href="../page/page-list.client.view.html">
-                                Facebook
-                            </a>
-                        </div>
-                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                            <a href="website-edit.view.client.html">
-                                <span class="pull-right glyphicon glyphicon-cog"></span>
-                            </a>
-                        </div>
-                    </div>
-                </li>
-
-
-                <li class="list-group-item">
-                    <div class="row">
-                        <div class="col-xs-10">
-                            <a href="../page/page-list.client.view.html">
-                                Wikipedia
-                            </a>
-                        </div>
-                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                            <a href="website-edit.view.client.html">
-                                <span class="pull-right glyphicon glyphicon-cog"></span>
-                            </a>
-                        </div>
-                    </div>
-                </li>
-
-
-                <li class="list-group-item">
-                    <div class="row">
-                        <div class="col-xs-10">
-                            <a href="../page/page-list.client.view.html">
-                                Twitter
-                            </a>
-                        </div>
-                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                            <a href="website-edit.view.client.html">
-                                <span class="pull-right glyphicon glyphicon-cog"></span>
-                            </a>
-                        </div>
-                    </div>
-                </li>-->
-
-
-                <li ng-repeat="website in model.websites" class="list-group-item">
+                <li ng-repeat="website in model.websites track by $index" class="list-group-item">
                     <div class="row">
                         <div class="col-xs-10">
                             <a href="#!/user/{{model.userID}}/website/{{website.name}}">
@@ -92,7 +43,7 @@
                             </a>
                         </div>
                         <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                            <a href="#!/user/{{model.userID}}/website/{{model.webID}}">
+                            <a href="#!/user/{{model.userID}}/website/{{website._id}}">
                                 <span class="pull-right glyphicon glyphicon-cog"></span>
                             </a>
                         </div>
@@ -106,6 +57,7 @@
 
             <label for="name">Name</label>
             <input name="websiteName"
+                   ng-model="model.website.name"
                    class="form-control"
                    placeholder="Facebook"
                    value="Facebook"
@@ -113,6 +65,7 @@
 
             <label for="description">Description</label>
             <textarea name="websiteDescription"
+                      ng-model="model.website.description"
                       row="5"
                       class="form-control"
                       placeholder="Description"
@@ -132,7 +85,7 @@
 
         <a class="navbar-brand"></a>
 
-        <a href="../user/templates/profile.view.client.html">
+        <a href="#!/profile/{{model.userID}}">
             <span class="pull-right glyphicon glyphicon-user ab-white-icons btn-lg"></span>
         </a>
 

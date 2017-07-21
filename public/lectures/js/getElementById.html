@@ -2,9 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Get Element By ID</title>
 </head>
 <body>
-    $END$
+
+    <h1 id="hello">Get Element by ID</h1>
+
+    <script>
+
+        var html = document.getElementById("hello").innerHTML;
+
+        document.getElementById("hello").innerHTML = "GoodBye"
+
+    </script>
+
+
+    <label for="username">Username</label>
+    <input name="username"
+           class="form-control"
+           placeholder="username"
+           value = "alark"
+           id="username"/>
+
+
+    <script>
+
+        var un = document.getElementById("username").value;
+
+        console.log(un);
+
+        un.value = "Bob";
+
+    </script>
+    
 </body>
 </html>

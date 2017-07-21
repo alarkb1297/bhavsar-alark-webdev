@@ -6,58 +6,86 @@
 
     angular
         .module("WamApp")
-        .controller("loginController", loginController)
-        .controller("profileController", profileController)
         .config(configuration);
 
     function configuration($routeProvider) {
 
         $routeProvider
             .when("/login", {
-                templateUrl: "login.html"
+                templateUrl: "views/user/templates/login.view.client.html",
+                controller: "loginController",
+                controllerAs: "model"
             })
             .when("/register", {
-                templateUrl: "register.html"
+                templateUrl: "views/user/templates/register.view.client.html",
+                controller: "registerController",
+                controllerAs: "model"
+
             })
 
             .when("/profile/:userID", {
-                templateUrl: "profile.html"
+                templateUrl: "views/user/templates/profile.view.client.html",
+                controller: "profileController",
+                controllerAs: "model"
+            })
+
+        //website routes
+            .when("/user/:userID/website", {
+                templateUrl: "views/website/templates/website-list.view.client.html",
+                controller: "websiteListController",
+                controllerAs: "model"
+            })
+
+            .when("/user/:userID/website/new", {
+                templateUrl: "views/website/templates/website-new.view.client.html",
+                controller: "websiteNewController",
+                controllerAs: "model"
+            })
+
+            .when("/user/:userID/website/:webID", {
+                templateUrl: "views/website/templates/website-edit.view.client.html",
+                controller: "websiteEditController",
+                controllerAs: "model"
+            })
+
+            //page routes
+            .when("/user/:userID/website/:webID/page", {
+                templateUrl: "views/page/page-list.view.client.html",
+                controller: "pageListController",
+                controllerAs: "model"
+            })
+
+            .when("/user/:userID/website/:webID/page/new", {
+                templateUrl: "views/page/page-new.view.client.html",
+                controller: "pageNewController",
+                controllerAs: "model"
+            })
+
+            .when("/user/:userID/website/:webID/page/:pageID", {
+                templateUrl: "views/page/page-edit.view.client.html",
+                controller: "pageEditController",
+                controllerAs: "model"
+            })
+
+            //wigdet routes
+            .when("/user/:userID/website/:webID/page/:pageID/widget", {
+                templateUrl: "views/widget/widget-list.view.client.html",
+                controller: "widgetListController",
+                controllerAs: "model"
+            })
+
+            .when("/user/:userID/website/:webID/page/:pageID/widget/new", {
+                templateUrl: "views/widget/widget-new.view.client.html",
+                controller: "widgetNewController",
+                controllerAs: "model"
+            })
+
+            .when("/user/:userID/website/:webID/page/:pageID/widget/:widgetID", {
+                templateUrl: "views/widget/widget-edit.view.client.html",
+                controller: "widgetEditController",
+                controllerAs: "model"
             })
 
     }
 
-//JSON = JS Object Notation
-    var users = [
-        {_id: "123", username: "alice", password: "alice", firstName: "Alice", lastName: "Wonder"},
-        {_id: "234", username: "bob", password: "bob", firstName: "Bob", lastName: "Marley"},
-        {_id: "345", username: "charly", password: "charly", firstName: "Charly", lastName: "Garcia"},
-        {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose", lastName: "Annunzi"}
-    ]
-
-    function profileController($scope, $routeParams) {
-
-        var userID = $routeParams["userID"];
-
-        for (var u in users) {
-            var _user = users[u];
-            if (_user._id == userID) {
-                $scope.user = _user;
-            }
-        }
-    }
-
-    function loginController($scope, $location) {
-
-        $scope.login = function (user) {
-
-            for (var u in users) {
-                var _user = users[u];
-
-                if (_user.username == user.username && _user.password == user.password) {
-                    $location.url("profile/" + _user._id);
-                }
-            }
-            $scope.errorMessage = "User Not Found";
-        }
-    }
 })()

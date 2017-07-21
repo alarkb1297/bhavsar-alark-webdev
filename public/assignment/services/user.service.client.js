@@ -2,7 +2,6 @@
  * Created by Alark on 7/19/17.
  */
 
-
 (function () {
 
     angular
@@ -17,7 +16,7 @@
             {_id: "234", username: "bob", password: "bob", firstName: "Bob", lastName: "Marley"},
             {_id: "345", username: "charly", password: "charly", firstName: "Charly", lastName: "Garcia"},
             {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose", lastName: "Annunzi"}
-        ]
+        ];
 
         var api = {
             "findUserByUsername" : findUserByUsername,
@@ -25,9 +24,8 @@
             "findUserByID" : findUserByID,
             "registerUser" : registerUser,
             "updateUser" : updateUser,
-            "unregisterUser" : unregisterUser
+            "deleteUser" : deleteUser
         };
-
         return api;
 
         function findUserByID(userID) {
@@ -66,7 +64,7 @@
 
         function updateUser(userID, user) {
             for(var u in users) {
-                if(users[u]._id === userID) {
+                if(users[u]._id == userID) {
                     users[u] = user;
                     return users[u];
                 }
@@ -80,10 +78,10 @@
             return user;
         }
 
-        function unregisterUser(user) {
+        function deleteUser(userID) {
 
             for(var u in users) {
-                if(users[u]._id === user._id) {
+                if(users[u]._id == userID) {
                     users.splice(u)
                     return;
                 }
@@ -91,10 +89,6 @@
             return null;
 
         }
-
-
-
-
 
     }
 
