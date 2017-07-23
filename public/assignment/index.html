@@ -11,7 +11,6 @@
 
     <title>Assignment</title>
 
-
     <!-- Bootstrap core CSS -->
     <link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap theme -->
@@ -20,7 +19,6 @@
     <!-- Custom styles for this template -->
     <link href="css/theme.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-
 
     <script src="../vendor/angular/angular.js"></script>
     <script src="../vendor/angular/angular-route.js"></script>
@@ -42,6 +40,11 @@
     <script src="views/page/controllers/page-edit.controller.client.js"></script>
     <script src="views/page/controllers/page-new.controller.client.js"></script>
 
+    <!--widget controllers-->
+    <script src="views/widget/controllers/widget-list.controller.client.js"></script>
+    <script src="views/widget/controllers/widget-edit-controller.client.js"></script>
+    <script src="views/widget/controllers/widget-new.controller.client.js"></script>
+
     <!--services-->
     <script src="services/website.service.client.js"></script>
     <script src="services/user.service.client.js"></script>
@@ -49,16 +52,11 @@
     <script src="services/widget.service.client.js"></script>
 
 
-
-
-
-
 </head>
 
 <body>
 
     <div ng-view></div>
-
 
 </body>
 </html>

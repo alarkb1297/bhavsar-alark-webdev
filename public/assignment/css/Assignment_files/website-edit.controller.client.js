@@ -14,8 +14,12 @@
         model.userID = $routeParams.userID;
         model.webID = $routeParams.webID;
 
+        // var userID = $routeParams["userID"];
+        // var webID = $routeParams["webID"];
+
         model.updateWebsite = updateWebsite;
         model.deleteWebsite = deleteWebsite;
+
 
         function init() {
             model.website = websiteService.findWebsiteById(model.webID);

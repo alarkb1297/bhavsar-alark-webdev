@@ -8,24 +8,19 @@
         .module("WamApp")
         .controller("widgetListController", widgetListController);
 
-    function widgetListController($routeParams, widgetService, $sce) {
+    function widgetListController($routeParams, widgetService, $location) {
         var model = this;
 
         model.userID = $routeParams.userID;
         model.webID = $routeParams.webID;
         model.pageID = $routeParams.pageID;
 
-        model.trustSrc = trustSrc;
-
         function init() {
             model.widgets = widgetService.findWidgetsByPageId(model.pageID);
         }
-
         init();
 
-        function trustSrc(src) {
-            return $sce.trustAsResourceUrl(src);
-        }
+
 
     }
 

@@ -1,0 +1,68 @@
+<nav class="navbar navbar-page-color navbar-fixed-top">
+
+    <div class="navbar-header">
+
+        <a href="#!/user/{{model.userID}}/website/{{model.webID}}/page/{{model.pageID}}/widget">
+            <span class="pull-left glyphicon glyphicon-chevron-left ab-black-icons btn-lg"></span>
+        </a>
+
+        <a class="navbar-brand">Edit Widget</a>
+
+        <a ng-click="model.updateWidget(model.widget)">
+            <span class="pull-right glyphicon glyphicon-ok ab-black-icons btn-lg"></span>
+        </a>
+
+    </div>
+
+</nav>
+
+
+<div class="container-fluid">
+
+    <label for="widgetName">Name</label>
+    <input name="pageName"
+           class="form-control"
+           ng-model="model.widget.name"
+           placeholder="Header"
+           value="Header"
+           id="widgetName"/>
+
+    <label for="widgetText">Text</label>
+    <input name="widgetText"
+           ng-model="model.widget.text"
+           class="form-control"
+           placeholder="US Senate Reaches Compromise on Emergency Zika funding"
+           value="US Senate Reaches Compromise on Emergency Zika funding"
+           id="widgetText">
+    </input>
+
+    <label for="widgetSize">Size</label>
+    <input name="widgetSize"
+           type="number"
+           ng-model="model.widget.size"
+           class="form-control"
+           placeholder="3"
+           value="3"
+           id="widgetSize">
+
+    <a class="btn btn-block btn-danger" ng-click="model.deleteWidget(model.widgetID)" role="button">Delete</a>
+
+</div>
+
+
+<nav class="navbar navbar-page-color navbar-fixed-bottom">
+
+    <div class="navbar-header">
+
+        <a class="navbar-brand"></a>
+
+        <a href="#!/profile/{{model.userID}}">
+            <span class="pull-right glyphicon glyphicon-user ab-black-icons btn-lg"></span>
+        </a>
+
+    </div>
+
+</nav>
+
+
+

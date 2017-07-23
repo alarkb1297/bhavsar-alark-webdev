@@ -4,7 +4,7 @@
 
         <div class="navbar-header">
 
-            <a href="widget-list.view.client.html">
+            <a href="#!/user/{{model.userID}}/website/{{model.webID}}/page/{{model.pageID}}/widget">
                 <span class="pull-left glyphicon glyphicon-chevron-left ab-black-icons btn-lg"></span>
             </a>
 
@@ -20,61 +20,73 @@
         <ul class="list-group">
 
             <li>
-                <a class="list-group-item" href="widget-heading.view.client.html">
+                <a class="list-group-item" ng-click="model
+                .createWidget({'_id': '', 'widgetType': 'HEADING', 'pageId': '', 'size': 0, 'text': ''})">
                     Header
                 </a>
             </li>
 
             <li>
-                <a class="list-group-item" href="widget-chooser.view.client.html">
+                <a class="list-group-item"
+                   href="#!/user/{{model.userID}}/website/{{model.webID}}/page/{{model.pageID}}/widget/new">
                     Label
                 </a>
             </li>
 
             <li>
-                <a class="list-group-item" href="widget-chooser.view.client.html">
+                <a class="list-group-item"
+                   href="#!/user/{{model.userID}}/website/{{model.webID}}/page/{{model.pageID}}/widget/new">
                     HTML
                 </a>
             </li>
 
             <li>
-                <a class="list-group-item" href="widget-chooser.view.client.html">
+                <a class="list-group-item"
+                   href="#!/user/{{model.userID}}/website/{{model.webID}}/page/{{model.pageID}}/widget/new">
                     Text Input
                 </a>
             </li>
 
             <li>
-                <a class="list-group-item" href="widget-chooser.view.client.html">
+                <a class="list-group-item"
+                   href="#!/user/{{model.userID}}/website/{{model.webID}}/page/{{model.pageID}}/widget/new">
                     Link
                 </a>
             </li>
 
             <li>
-                <a class="list-group-item" href="widget-chooser.view.client.html">
+                <a class="list-group-item"
+                   href="#!/user/{{model.userID}}/website/{{model.webID}}/page/{{model.pageID}}/widget/new">
                     Button
                 </a>
             </li>
 
             <li>
-                <a class="list-group-item" href="widget-image.view.client.html">
+                <a class="list-group-item" ng-click="model
+                .createWidget({'_id': '', 'widgetType': 'IMAGE', 'pageId': '',
+                'width': '100%', 'size': 0, 'text': '', 'url': ''})">
                     Image
                 </a>
             </li>
 
             <li>
-                <a class="list-group-item" href="widget-youtube.view.client.html">
+                <a class="list-group-item" ng-click="model
+                .createWidget({'_id': '', 'widgetType': 'YOUTUBE', 'pageId': '',
+                'width': '100%', 'size': 0, 'text': '', 'url': ''})">
                     YouTube
                 </a>
             </li>
 
             <li>
-                <a class="list-group-item" href="widget-chooser.view.client.html">
+                <a class="list-group-item"
+                   href="#!/user/{{model.userID}}/website/{{model.webID}}/page/{{model.pageID}}/widget/new">
                     Data Table
                 </a>
             </li>
 
             <li>
-                <a class="list-group-item" href="widget-chooser.view.client.html">
+                <a class="list-group-item"
+                   href="#!/user/{{model.userID}}/website/{{model.webID}}/page/{{model.pageID}}/widget/new">
                     Repeater
                 </a>
             </li>

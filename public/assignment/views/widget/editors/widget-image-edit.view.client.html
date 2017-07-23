@@ -1,0 +1,82 @@
+<nav class="navbar navbar-page-color navbar-fixed-top">
+
+    <div class="navbar-header">
+
+        <a href="#!/user/{{model.userID}}/website/{{model.webID}}/page/{{model.pageID}}/widget">
+            <span class="pull-left glyphicon glyphicon-chevron-left ab-black-icons btn-lg"></span>
+        </a>
+
+        <a class="navbar-brand">Edit Widget</a>
+
+        <a ng-click="model.updateWidget(model.widget)">
+            <span class="pull-right glyphicon glyphicon-ok ab-black-icons btn-lg"></span>
+        </a>
+
+    </div>
+
+</nav>
+
+
+<div class="container-fluid">
+
+    <label for="widgetName">Name</label>
+    <input name="pageName"
+           ng-model="model.widget.name"
+           class="form-control"
+           placeholder="Header"
+           id="widgetName"/>
+
+    <label for="widgetText">Text</label>
+    <input name="widgetText"
+           ng-model="model.widget.text"
+           class="form-control"
+           row="3"
+           placeholder="Mosqioto Picture"
+           id="widgetText">
+    </input>
+
+    <label for="widgetURL">URL</label>
+    <input name="widgetURL"
+           type="url"
+           ng-model="model.widget.url"
+           class="form-control"
+           placeholder="http://images.google.com"
+           id="widgetURL">
+
+    <label for="widgetWidth">Width</label>
+    <input name="widgetWidth"
+           type="number"
+           ng-model="model.widget.width"
+           class="form-control"
+           placeholder="50%"
+           id="widgetWidth">
+
+    <label for="widgetImage">Image</label>
+    <input name="widgetImage"
+           type="file"
+           ng-model="model.widget.width"
+           class="form-control"
+           placeholder="image.jpg"
+           id="widgetImage">
+
+    <!--<a class="btn btn-block btn-primary" href="../templates/widget-list.view.client.html" role="button">Upload Image</a>-->
+    <a class="btn btn-block btn-danger" ng-click="model.deleteWidget(model.widgetID)" role="button">Delete</a>
+
+</div>
+
+
+<nav class="navbar navbar-page-color navbar-fixed-bottom">
+
+    <div class="navbar-header">
+
+
+        <a class="navbar-brand"></a>
+
+        <a href="#!/profile/{{model.userID}}">
+            <span class="pull-right glyphicon glyphicon-user ab-black-icons btn-lg"></span>
+        </a>
+
+    </div>
+
+</nav>
+

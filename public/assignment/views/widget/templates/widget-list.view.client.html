@@ -2,13 +2,13 @@
 
     <div class="navbar-header">
 
-        <a href="../../page/templates/page-list.view.client.html">
+        <a href="#!/user/{{model.userID}}/website/{{model.webID}}/page">
             <span class="pull-left glyphicon glyphicon-chevron-left ab-black-icons btn-lg"></span>
         </a>
 
         <a class="navbar-brand">Widgets</a>
 
-        <a href="widget-chooser.view.client.html">
+        <a href="#!/user/{{model.userID}}/website/{{model.webID}}/page/{{model.pageID}}/widget/new">
             <span class="pull-right glyphicon glyphicon-plus ab-black-icons btn-lg"></span>
         </a>
 
@@ -22,7 +22,7 @@
 
     <!--<div class="ab-widget-div">
         <div class="ab-glyphicon-overlapping-content">
-            <a href="widget-heading.view.client.html">
+            <a hrwidget-heading-edit.view.client.htmlhtml">
                 <span class="glyphicon glyphicon-cog"></span>
             </a>
             <span class="glyphicon glyphicon-align-justify"></span>
@@ -33,7 +33,7 @@
 
     <div class="ab-widget-div">
         <div class="ab-glyphicon-overlapping-content">
-            <a href="widget-heading.view.client.html">
+            <a hrwidget-heading-edit.view.client.htmlhtml">
                 <span class="glyphicon glyphicon-cog"></span>
             </a>
             <span class="glyphicon glyphicon-align-justify"></span>
@@ -44,7 +44,7 @@
 
     <div class="ab-widget-div">
         <div class="ab-glyphicon-overlapping-content">
-            <a href="widget-image.view.client.html">
+            <a hrwidget-image-edit.view.client.htmlhtml">
                 <span class="glyphicon glyphicon-cog"></span>
             </a>
             <span class="glyphicon glyphicon-align-justify"></span>
@@ -55,7 +55,7 @@
 
     <div class="ab-widget-div">
         <div class="ab-glyphicon-overlapping-content">
-            <a href="widget-heading.view.client.html">
+            <a hrwidget-heading-edit.view.client.htmlhtml">
                 <span class="glyphicon glyphicon-cog"></span>
             </a>
             <span class="glyphicon glyphicon-align-justify"></span>
@@ -73,7 +73,7 @@
 
     <div class="ab-widget-div">
         <div class="ab-glyphicon-overlapping-content">
-            <a href="widget-heading.view.client.html">
+            <a hrwidget-heading-edit.view.client.htmlhtml">
                 <span class="glyphicon glyphicon-cog"></span>
             </a>
             <span class="glyphicon glyphicon-align-justify"></span>
@@ -84,7 +84,7 @@
 
     <div class="ab-widget-div">
         <div class="ab-glyphicon-overlapping-content">
-            <a href="widget-youtube.view.client.html">
+            <a hrwidget-youtube-edit.view.client.htmlhtml">
                 <span class="glyphicon glyphicon-cog"></span>
             </a>
             <span class="glyphicon glyphicon-align-justify"></span>
@@ -97,7 +97,7 @@
 
     <div class="ab-widget-div">
         <div class="ab-glyphicon-overlapping-content">
-            <a href="widget-heading.view.client.html">
+            <a hrwidget-heading-edit.view.client.htmlhtml">
                 <span class="glyphicon glyphicon-cog"></span>
             </a>
             <span class="glyphicon glyphicon-align-justify"></span>
@@ -112,18 +112,33 @@
     </div>-->
 
 
-    <div ng-repeat="widget in model.widgets">
+    <div class="ab-widget-div container-fluid" ng-repeat="widget in model.widgets">
+
         <div ng-switch="widget.widgetType">
+
+            <div class="ab-glyphicon-overlapping-content">
+
+                <a href="#!/user/{{model.userID}}/website/{{model.webID}}/page/{{model.pageID}}/widget/{{widget._id}}">
+                    <span class="glyphicon glyphicon-cog"></span>
+                </a>
+
+                <span class="glyphicon glyphicon-align-justify"></span>
+            </div>
+
             <div ng-switch-when="HEADING">
-                <ng-include src="'widget-heading.view.client.html'">
+                <ng-include src="'views/widget/templates/widget-heading.view.client.html'">
             </div>
+
             <div ng-switch-when="IMAGE">
-                <ng-include src="'widget-image.view.client.html'">
+                <ng-include src="'views/widget/templates/widget-image.view.client.html'">
             </div>
+
             <div ng-switch-when="YOUTUBE">
-                <ng-include src="'widget-youtube.view.client.html'">
+                <ng-include src="'views/widget/templates/widget-youtube.view.client.html'">
             </div>
+
         </div>
+
     </div>
 
 
@@ -134,10 +149,7 @@
 
     <div class="navbar-header">
 
-        <span class="glyphicon glyphicon-play ab-black-icons btn-sm"></span>
-        <span class="glyphicon glyphicon-eye-open ab-black-icons btn-sm"></span>
-
-        <a href="../../user/templates/profile.view.client.html">
+        <a href="#!/profile/{{model.userID}}">
             <span class="pull-right glyphicon glyphicon-user ab-black-icons btn-lg"></span>
         </a>
 
