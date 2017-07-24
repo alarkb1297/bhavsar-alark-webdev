@@ -16,6 +16,7 @@
         model.pageID = $routeParams.pageID;
 
         model.trustSrc = trustSrc;
+        model.youtube_parser = youtube_parser;
 
         function init() {
             model.widgets = widgetService.findWidgetsByPageId(model.pageID);
@@ -25,6 +26,16 @@
 
         function trustSrc(src) {
             return $sce.trustAsResourceUrl(src);
+        }
+
+        function youtube_parser(url){
+            var regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+            var match = url.match(regExp);
+            if (match && match[2].length == 11) {
+                return trustSrc("//www.youtube.com/embed/" + match[2]);
+            } else {
+                return;
+            }
         }
 
     }
