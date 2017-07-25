@@ -17,6 +17,7 @@
 
         model.trustSrc = trustSrc;
         model.youtube_parser = youtube_parser;
+        model.trustHtmlContent = trustHtmlContent;
 
         function init() {
             model.widgets = widgetService.findWidgetsByPageId(model.pageID);
@@ -26,6 +27,10 @@
 
         function trustSrc(src) {
             return $sce.trustAsResourceUrl(src);
+        }
+
+        function trustHtmlContent(htmlContent) {
+            return $sce.trustAsHtml(htmlContent);
         }
 
         function youtube_parser(url){

@@ -8,15 +8,7 @@
         .module("WamApp")
         .factory("userService", userService);
 
-    function userService() {
-
-        //JSON = JS Object Notation
-        var users = [
-            {_id: "123", username: "alice", password: "alice", firstName: "Alice", lastName: "Wonder"},
-            {_id: "234", username: "bob", password: "bob", firstName: "Bob", lastName: "Marley"},
-            {_id: "345", username: "charly", password: "charly", firstName: "Charly", lastName: "Garcia"},
-            {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose", lastName: "Annunzi"}
-        ];
+    function userService($http) {
 
         var api = {
             "findUserByUsername": findUserByUsername,
@@ -30,14 +22,7 @@
 
         function findUserByID(userID) {
 
-            for (var u in users) {
-                var _user = users[u];
-                if (_user._id == userID) {
-                    return angular.copy(_user);
-                }
-            }
-
-            return null;
+            return $http.get("http://localhost:3000/api/users/" + userID);
         }
 
         function findUserByUsernameAndPassword(username, password) {

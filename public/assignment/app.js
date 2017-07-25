@@ -7,4 +7,4 @@
     angular
         .module("WamApp", ["ngRoute"]);
 
-})()
+})();

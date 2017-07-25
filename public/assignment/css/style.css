@@ -16,7 +16,6 @@ ul {
 
 img {
     display: block;
-    margin: 0 auto;
     max-height: 100%;
     max-width: 100%;
 }
@@ -38,6 +37,10 @@ img {
 
 .navbar-page-color .navbar-brand {
     color: black;
+}
+
+.navbar-inverse {
+    height: 60px;
 }
 
 a:hover {
@@ -99,6 +102,11 @@ a.list-group-item {
     color: white;
 }
 
+.ab-home-bg {
+    background-image: url("http://cdn.akamai.steamstatic.com/steamcommunity/public/images/items/383690/f7a121a3f7a929ffb4dbc3ae241b3b4b6eaaed1d.jpg");
+    background-size: contain;
+}
+
 @media (min-width: 992px) {
 
     .col-md-3.ab-split-left {
@@ -124,3 +132,4 @@ a.list-group-item {
         width: 100%;
     }
 }
+
