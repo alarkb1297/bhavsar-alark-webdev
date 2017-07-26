@@ -42,7 +42,7 @@
                 $location.url("/profile/" + user._id);
                 return user;
             } else {
-                model.error = "User already exists";
+                model.errorMessage = "User already exists";
                 return;
             }
 

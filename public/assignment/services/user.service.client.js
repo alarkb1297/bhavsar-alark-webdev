@@ -31,7 +31,7 @@
 
             for (var u in users) {
                 if (users[u]._id == userID) {
-                    return users[u];
+                    return angular.copy(users[u]);
                 }
             }
             return null;

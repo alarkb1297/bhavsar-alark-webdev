@@ -33,11 +33,11 @@
             var _user = userService.findUserByUsername(user.username);
 
             if (!_user) {
-                userService.updateUser(user._id, user);
-                $location.url("/profile/" + model.userID);
-            } else {
                 model.error = "User already exists";
                 return;
+            } else {
+                userService.updateUser(user._id, user);
+                $location.url("/profile/" + model.userID);
             }
 
         }

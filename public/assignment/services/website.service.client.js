@@ -54,7 +54,6 @@
 
                 if (websites[w]._id == webID) {
                     return angular.copy(websites[w]);
-                    //return websites[w];
                 }
             }
             return;
