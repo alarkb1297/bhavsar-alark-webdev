@@ -34,8 +34,8 @@
             </li>
 
             <li>
-                <a class="list-group-item"
-                   href="#!/user/{{model.userID}}/website/{{model.webID}}/page/{{model.pageID}}/widget/new">
+                <a class="list-group-item" ng-click="model
+                .createWidget({'_id': '', 'widgetType': 'HTML', 'pageId': '', 'text': ''})">
                     HTML
                 </a>
             </li>

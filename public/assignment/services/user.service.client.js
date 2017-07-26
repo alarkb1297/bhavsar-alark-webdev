@@ -10,6 +10,13 @@
 
     function userService($http) {
 
+        var users = [
+            {_id: "123", username: "alice", password: "alice", firstName: "Alice", lastName: "Wonder"},
+            {_id: "234", username: "bob", password: "bob", firstName: "Bob", lastName: "Marley"},
+            {_id: "345", username: "charly", password: "charly", firstName: "Charly", lastName: "Garcia"},
+            {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose", lastName: "Annunzi"}
+        ];
+
         var api = {
             "findUserByUsername": findUserByUsername,
             "findUserByUsernameAndPassword": findUserByUsernameAndPassword,
@@ -22,7 +29,14 @@
 
         function findUserByID(userID) {
 
-            return $http.get("http://localhost:3000/api/users/" + userID);
+            for (var u in users) {
+                if (users[u]._id == userID) {
+                    return users[u];
+                }
+            }
+            return null;
+
+            //return $http.get("http://localhost:3000/api/users/" + userID);
         }
 
         function findUserByUsernameAndPassword(username, password) {

@@ -19,10 +19,12 @@
         model.deleteUser = deleteUser;
 
         function init() {
-            userService.findUserByID(model.userID)
+            /*userService.findUserByID(model.userID)
                 .then(function (response) {
                 model.user = response.data;
-            })
+            })*/
+
+            model.user = userService.findUserByID(model.userID);
         }
         init();
 
