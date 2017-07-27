@@ -20,7 +20,11 @@
         model.trustHtmlContent = trustHtmlContent;
 
         function init() {
-            model.widgets = widgetService.findWidgetsByPageId(model.pageID);
+            widgetService
+                .findWidgetsByPageId(model.pageID)
+                .then(function (widgets) {
+                    model.widgets = widgets;
+                })
         }
 
         init();
@@ -33,7 +37,7 @@
             return $sce.trustAsHtml(htmlContent);
         }
 
-        function youtube_parser(url){
+        function youtube_parser(url) {
             var regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
             var match = url.match(regExp);
             if (match && match[2].length == 11) {

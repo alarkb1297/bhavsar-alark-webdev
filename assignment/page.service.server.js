@@ -62,7 +62,7 @@ function updatePage(req, response) {
     for (var p in pages) {
         if (pages[p]._id == pageID) {
             pages[p] = page;
-            response.send(pages[p]);
+            response.json(pages[p]);
             return;
         }
     }
@@ -76,7 +76,7 @@ function deletePage(req, response) {
 
     for (var p in pages) {
         if (pages[p]._id == pageID) {
-            response.send(pages.splice(p, 1));
+            response.json(pages.splice(p, 1));
             return;
         }
     }

@@ -22,7 +22,10 @@
         model.updateWidget = updateWidget;
 
         function init() {
-            model.widget = widgetService.findWidgetById(model.widgetID);
+            widgetService.findWidgetById(model.widgetID)
+                .then(function (widget) {
+                    model.widget = widget;
+                });
         }
 
         init();
@@ -30,14 +33,21 @@
 
         function updateWidget(widget) {
 
-            widgetService.updateWidget(model.widgetID, widget);
-            $location.url("/user/" + model.userID + "/website/" + model.webID + "/page/" + model.pageID + "/widget/");
+            widgetService
+                .updateWidget(model.widgetID, widget)
+                .then(function (widget) {
+                    $location.url("/user/" + model.userID + "/website/" + model.webID + "/page/"
+                        + model.pageID + "/widget/");
+                });
         }
 
         function deleteWidget(widgetID) {
 
-            widgetService.deleteWidget(widgetID);
-            $location.url("/user/" + model.userID + "/website/" + model.webID + "/page/" + model.pageID + "/widget/");
+            widgetService.deleteWidget(widgetID)
+                .then(function (widget) {
+                    $location.url("/user/" + model.userID + "/website/" + model.webID + "/page/"
+                        + model.pageID + "/widget/");
+                });
         }
 
     }
