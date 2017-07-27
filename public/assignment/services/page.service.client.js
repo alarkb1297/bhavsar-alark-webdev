@@ -4,15 +4,7 @@
         .module("WamApp")
         .factory("pageService", pageService);
 
-    function pageService() {
-
-        //JSON = JS Object Notation
-        var pages = [
-                {"_id": "321", "name": "Post 1", "websiteId": "456", "description": "Lorem"},
-                {"_id": "432", "name": "Post 2", "websiteId": "456", "description": "Lorem"},
-                {"_id": "543", "name": "Post 3", "websiteId": "456", "description": "Lorem"}
-            ]
-        ;
+    function pageService($http) {
 
         var api = {
             "createPage": createPage,
@@ -24,56 +16,98 @@
         return api;
 
         function createPage(webID, page) {
-            page._id = (new Date()).getTime() + "";
-            page.websiteId = webID;
 
-            pages.push(page);
+            var url = "/api/website/" + webID + "/page";
 
-            return page;
+            return $http.post(url, page)
+                .then(function (response) {
+                    var page = response.data;
+                    return page;
+                });
+
+            /*page._id = (new Date()).getTime() + "";
+             page.websiteId = webID;
+
+             pages.push(page);
+
+             return page;*/
         }
 
         function findPagesByWebsiteId(webID) {
 
-            var pgs = [];
+            var url = "/api/website/" + webID + "/page";
+
+            return $http.get(url)
+                .then(function (response) {
+                    var pages = response.data;
+                    return pages;
+                });
+
+            /*var pgs = [];
 
             for (var p in pages) {
                 if (pages[p].websiteId == webID) {
                     pgs.push(pages[p])
                 }
             }
-            return pgs;
+            return pgs;*/
         }
 
         function findPageById(pageID) {
 
-            for (var p in pages) {
+            var url = "/api/page/" + pageID;
+
+            return $http.get(url)
+                .then(function (response) {
+                    var page = response.data;
+                    return page;
+                })
+
+            /*for (var p in pages) {
                 if (pages[p]._id == pageID) {
                     return angular.copy(pages[p]);
                 }
             }
-            return;
+            return;*/
         }
 
         function updatePage(pageID, page) {
 
-            for (var p in pages) {
+            var url = "/api/page/" + pageID;
+
+            return $http.put(url, page)
+                .then(function (response) {
+                    var page = response.data;
+                    return page;
+                })
+
+
+            /*for (var p in pages) {
                 if (pages[p]._id == pageID) {
                     pages[p] = page;
                     return pages[p];
                 }
             }
-            return null;
+            return null;*/
         }
 
         function deletePage(pageID) {
 
-            for (var p in pages) {
+            var url = "/api/page/" + pageID;
+
+            return $http.delete(url)
+                .then(function (response) {
+                    var page = response.data;
+                    return page;
+                })
+
+            /*for (var p in pages) {
                 if (pages[p]._id == pageID) {
                     pages.splice(p, 1)
                     return;
                 }
             }
-            return;
+            return;*/
         }
 
     }

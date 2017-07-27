@@ -15,8 +15,13 @@
         model.webID = $routeParams.webID;
 
         function init() {
-            model.pages = pageService.findPagesByWebsiteId(model.webID);
+            pageService
+                .findPagesByWebsiteId(model.webID)
+                .then(function (pages) {
+                    model.pages = pages;
+                })
         }
+
         init();
     }
 

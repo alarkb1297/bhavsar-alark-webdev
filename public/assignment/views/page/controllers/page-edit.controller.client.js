@@ -1,4 +1,3 @@
-
 (function () {
 
     angular
@@ -17,20 +16,36 @@
 
 
         function init() {
-            model.page = pageService.findPageById(model.pageID);
-            model.pages = pageService.findPagesByWebsiteId(model.webID);
+            pageService
+                .findPageById(model.pageID)
+                .then(function (page) {
+                    model.page = page;
+                })
+
+            pageService
+                .findPagesByWebsiteId(model.webID)
+                .then(function (pages) {
+                    model.pages = pages;
+                })
         }
+
         init();
 
 
         function updatePage(page) {
-            pageService.updatePage(model.pageID, page);
-            $location.url("/user/" + model.userID + "/website/" + model.webID + "/page/");
+            pageService
+                .updatePage(model.pageID, page)
+                .then(function (page) {
+                    $location.url("/user/" + model.userID + "/website/" + model.webID + "/page/");
+                })
         }
 
         function deletePage(pageID) {
-            pageService.deletePage(pageID);
-            $location.url("/user/" + model.userID + "/website/" + model.webID + "/page/");
+            pageService
+                .deletePage(pageID)
+                .then(function (page) {
+                    $location.url("/user/" + model.userID + "/website/" + model.webID + "/page/");
+                })
         }
     }
 

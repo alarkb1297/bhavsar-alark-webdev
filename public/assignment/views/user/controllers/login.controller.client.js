@@ -25,14 +25,14 @@
             }
 
             userService.findUserByUsernameAndPassword(user.username, user.password)
-                .then(function (user) {
+                .then(function (_user) {
 
-                    if (user === "0") {
+                    if (_user === "0") {
                         model.errorMessage = "User Not Found";
                     }
                     else {
-                        $rootScope.currentUser = user;
-                        $location.url("profile/" + user._id);
+                        $rootScope.currentUser = _user;
+                        $location.url("profile/" + _user._id);
                     }
                 })
 

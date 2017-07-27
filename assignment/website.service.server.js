@@ -69,7 +69,7 @@ function deleteWebsite(req, response) {
         }
     }
 
-    reponse.sendStatus(404);
+    response.sendStatus(404);
 }
 
 function updateWebsite(req, response) {
@@ -85,6 +85,6 @@ function updateWebsite(req, response) {
         }
     }
 
-    reponse.sendStatus(404);
+    response.sendStatus(404);
 
 }

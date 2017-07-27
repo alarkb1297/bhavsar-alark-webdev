@@ -19,15 +19,22 @@
         model.createPage = createPage;
 
         function init() {
-            model.pages = pageService.findPagesByWebsiteId(model.webID);
+            pageService
+                .findPagesByWebsiteId(model.webID)
+                .then(function (pages) {
+                    model.pages = pages;
+                })
         }
 
         init();
 
 
         function createPage(page) {
-            pageService.createPage(model.webID, page);
-            $location.url("/user/" + model.userID + "/website/" + model.webID + "/page");
+            pageService
+                .createPage(model.webID, page)
+                .then(function (page) {
+                    $location.url("/user/" + model.userID + "/website/" + model.webID + "/page");
+                })
         }
 
     }
