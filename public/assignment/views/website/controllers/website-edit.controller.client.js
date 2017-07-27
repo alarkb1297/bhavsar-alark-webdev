@@ -18,20 +18,36 @@
         model.deleteWebsite = deleteWebsite;
 
         function init() {
-            model.website = websiteService.findWebsiteById(model.webID);
-            model.websites = websiteService.findWebsitesForUser(model.userID);
+            websiteService
+                .findWebsiteById(model.webID)
+                .then(function (website) {
+                    model.website = website;
+                });
+
+            websiteService
+                .findWebsitesForUser(model.userID)
+                .then(function (websites) {
+                    model.websites = websites;
+                })
         }
+
         init();
 
-
         function updateWebsite(website) {
-            websiteService.updateWebsite(model.webID, website);
-            $location.url("/user/" + model.userID + "/website");
+            websiteService
+                .updateWebsite(model.webID, website)
+                .then(function (website) {
+                    $location.url("/user/" + model.userID + "/website");
+                })
         }
 
         function deleteWebsite(webID) {
-            websiteService.deleteWebsite(webID);
-            $location.url("/user/" + model.userID + "/website");
+            websiteService
+                .deleteWebsite(webID)
+                .then(function (website) {
+                    $location.url("/user/" + model.userID + "/website");
+                })
+
         }
     }
 

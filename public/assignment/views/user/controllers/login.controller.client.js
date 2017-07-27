@@ -11,28 +11,31 @@
         model.login = login;
 
 
-
         function init() {
 
         }
+
         init();
 
-       function login(user) {
+        function login(user) {
 
-           if (!user) {
-               model.errorMessage = "User Not Found";
-               return;
-           }
-
-            var user = userService.findUserByUsernameAndPassword(user.username, user.password);
-
-            if (user == null) {
+            if (!user) {
                 model.errorMessage = "User Not Found";
+                return;
             }
-            else {
-                $rootScope.currentUser = user;
-                $location.url("profile/" + user._id);
-            }
+
+            userService.findUserByUsernameAndPassword(user.username, user.password)
+                .then(function (user) {
+
+                    if (user === "0") {
+                        model.errorMessage = "User Not Found";
+                    }
+                    else {
+                        $rootScope.currentUser = user;
+                        $location.url("profile/" + user._id);
+                    }
+                })
+
         }
 
     }

@@ -35,16 +35,21 @@
                 return;
             }
 
-            var _user = userService.findUserByUsername(user.username);
+            userService.findUserByUsername(user.username)
+                .then(function (_user) {
 
-            if (!_user) {
-                var user = userService.registerUser(user);
-                $location.url("/profile/" + user._id);
-                return user;
-            } else {
-                model.errorMessage = "User already exists";
-                return;
-            }
+                    if (_user === "0") {
+                        return userService.registerUser(user)
+                    } else {
+                        model.errorMessage = "User already exists";
+                        return;
+                    }
+
+                })
+                .then(function (_user) {
+                    $location.url("/profile/" + _user._id);
+                    return _user;
+                })
 
         }
     }

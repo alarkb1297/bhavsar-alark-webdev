@@ -12,6 +12,14 @@
 
     <div class="container-fluid">
 
+        <div ng-show="model.errorMessage" class="alert alert-danger">
+            {{model.errorMessage}}
+        </div>
+
+        <div ng-show="model.confMessage" class="alert alert-success">
+            {{model.confMessage}}
+        </div>
+
         <label for="firstName">First Name</label>
         <input name="firstName"
                class="form-control"
@@ -51,7 +59,6 @@
 
 
         <a class="btn btn-block btn-primary" href="#!/user/{{model.user._id}}/website" role="button">Websites</a>
-        <!--<a class="btn btn-block btn-primary" ng-click="model.updateUser()" role="button">Update</a>-->
         <a class="btn btn-block btn-danger" ng-click="model.deleteUser(model.user._id)" role="button">Unregister</a>
         <a class="btn btn-block btn-danger" href="#!/login" role="button">Logout</a>
 

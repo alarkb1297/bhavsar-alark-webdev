@@ -19,15 +19,23 @@
 
         function init() {
 
-            model.websites = websiteService.findWebsitesForUser(model.userID);
+            websiteService
+                .findWebsitesForUser(model.userID)
+                .then(function (websites) {
+                    model.websites = websites;
+                })
 
         }
+
         init();
 
 
         function createWebsite(website) {
-            websiteService.createWebsite(model.userID, website);
-            $location.url("/user/" + model.userID + "/website");
+            websiteService
+                .createWebsite(model.userID, website)
+                .then(function (response) {
+                    $location.url("/user/" + model.userID + "/website");
+                })
         }
 
     }

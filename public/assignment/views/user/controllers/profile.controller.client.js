@@ -19,32 +19,41 @@
         model.deleteUser = deleteUser;
 
         function init() {
-            /*userService.findUserByID(model.userID)
-                .then(function (response) {
-                model.user = response.data;
-            })*/
+            userService.findUserByID(model.userID)
+                .then(function (user) {
+                    model.user = user;
+                })
 
-            model.user = userService.findUserByID(model.userID);
+            //model.user = userService.findUserByID(model.userID);
         }
+
         init();
 
         function updateUser(user) {
 
-            var _user = userService.findUserByUsername(user.username);
-
-            if (!_user) {
-                model.error = "User already exists";
-                return;
-            } else {
-                userService.updateUser(user._id, user);
-                $location.url("/profile/" + model.userID);
-            }
+            userService.findUserByUsername(user.username)
+                .then(function (_user) {
+                    if (_user !== "0" && _user._id === model.userID) {
+                        return userService.updateUser(user._id, user);
+                    } else {
+                        model.errorMessage = "User already exists";
+                        return;
+                    }
+                })
+                .then(function (_user) {
+                    model.confMessage = "User successfully updated";
+                    $location.url("/profile/" + _user._id);
+                    return _user;
+                })
 
         }
 
+
         function deleteUser(userID) {
-            userService.deleteUser(userID);
-            $location.url("/login");
+            userService.deleteUser(userID)
+                .then(function (user) {
+                    $location.url("/login");
+                })
         }
 
     }
