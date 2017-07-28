@@ -17,102 +17,9 @@
 </nav>
 
 
-<div class="container-fluid">
+<ul ng-model="widgets" class="container-fluid">
 
-
-    <!--<div class="ab-widget-div">
-        <div class="ab-glyphicon-overlapping-content">
-            <a hrwidget-heading-edit.view.client.htmlhtml">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <span class="glyphicon glyphicon-align-justify"></span>
-        </div>
-
-        <h1>GIZMODO</h1>
-    </div>
-
-    <div class="ab-widget-div">
-        <div class="ab-glyphicon-overlapping-content">
-            <a hrwidget-heading-edit.view.client.htmlhtml">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <span class="glyphicon glyphicon-align-justify"></span>
-        </div>
-
-        <h5>US Senate Reaches Compromise on Emergency Zika Funding</h5>
-    </div>
-
-    <div class="ab-widget-div">
-        <div class="ab-glyphicon-overlapping-content">
-            <a hrwidget-image-edit.view.client.htmlhtml">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <span class="glyphicon glyphicon-align-justify"></span>
-        </div>
-
-        <img src="https://i.kinja-img.com/gawker-media/image/upload/dw3l4m5ulgn6qqlhr7om.png" alt="Mosquito.png">
-    </div>
-
-    <div class="ab-widget-div">
-        <div class="ab-glyphicon-overlapping-content">
-            <a hrwidget-heading-edit.view.client.htmlhtml">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <span class="glyphicon glyphicon-align-justify"></span>
-        </div>
-
-        <p>
-            In February, the
-            <a href="http://gizmodo.com/white-house-wants-1-8-billion-to-fight-zika-1757772335">
-                White House formally asked Congress for $1.8 billion
-            </a>
-            dollars to help combat the Zika virus this summer. Now, the Senate has worked out a bipartisan deal will
-            allocate $1.1 billion in emergency funding.
-        </p>
-    </div>
-
-    <div class="ab-widget-div">
-        <div class="ab-glyphicon-overlapping-content">
-            <a hrwidget-heading-edit.view.client.htmlhtml">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <span class="glyphicon glyphicon-align-justify"></span>
-        </div>
-
-        <h5>Man in Wingsuit Flies Straight Through Ring of Fire</h5>
-    </div>
-
-    <div class="ab-widget-div">
-        <div class="ab-glyphicon-overlapping-content">
-            <a hrwidget-youtube-edit.view.client.htmlhtml">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <span class="glyphicon glyphicon-align-justify"></span>
-        </div>
-
-        <div class="videoWrapper">
-            <iframe src="https://www.youtube.com/embed/uLWLashCXHE" allowfullscreen></iframe>
-        </div>
-    </div>
-
-    <div class="ab-widget-div">
-        <div class="ab-glyphicon-overlapping-content">
-            <a hrwidget-heading-edit.view.client.htmlhtml">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <span class="glyphicon glyphicon-align-justify"></span>
-        </div>
-
-        <p>
-            Flying in a wingsuit? That's just not enough anymore. Anyone could do that (I would never do that).
-            You have to make it more extreme, like by hitting a target while you're cutting through the air at
-            crazy speeds. Or by making that target a small ring that you have to somehow fly through. Or by
-            lighting that ring on fire. Or by... actually, that should be extreme enough for now.
-        </p>
-    </div>-->
-
-
-    <div class="ab-widget-div container-fluid" ng-repeat="widget in model.widgets">
+    <li class="ab-widget-div container-fluid" ng-repeat="widget in model.widgets">
 
         <div ng-switch="widget.widgetType">
 
@@ -140,13 +47,11 @@
             <div ng-switch-when="HTML">
                 <ng-include src="'views/widget/templates/widget-html.view.client.html'">
             </div>
-
         </div>
 
-    </div>
+    </li>
 
-
-</div>
+</ul>
 
 
 <nav class="navbar navbar-page-color navbar-fixed-bottom">

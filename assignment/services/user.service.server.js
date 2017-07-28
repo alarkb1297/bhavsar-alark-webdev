@@ -1,4 +1,4 @@
-var app = require("../express");
+var app = require("../../express");
 
 var users = [
     {_id: "123", username: "alice", password: "alice", firstName: "Alice", lastName: "Wonder"},
@@ -31,9 +31,7 @@ function findUser(req, response) {
     var username = req.query.username;
     var password = req.query.password;
 
-
     if (username && password) {
-
         for (var u in users) {
             if (users[u].username === username && users[u].password === password) {
                 response.send(users[u]);

@@ -38,10 +38,6 @@
 
             return $http.get(url)
                 .then(function (response) {
-
-                    console.log(response.data);
-
-
                     var user = response.data;
                     return user;
                 });
@@ -98,7 +94,6 @@
                     return user;
 
                 });
-
         }
 
     }

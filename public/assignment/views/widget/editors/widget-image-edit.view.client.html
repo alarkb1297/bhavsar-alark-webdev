@@ -50,15 +50,24 @@
            placeholder="50%"
            id="widgetWidth">
 
-    <label for="widgetImage">Image</label>
+    <!--<label for="widgetImage">Image</label>
     <input name="widgetImage"
            type="file"
            ng-model="model.widget.width"
            class="form-control"
            placeholder="image.jpg"
-           id="widgetImage">
+           id="widgetImage">-->
 
-    <!--<a class="btn btn-block btn-primary" href="../templates/widget-list.view.client.html" role="button">Upload Image</a>-->
+    <form action="/api/upload" method="post" enctype="multipart/form-data">
+        <input name="myFile" type="file" class="form-control"/>
+        <input name="width" value="{{model.widget.width}}" style="display: none"/>
+        <input name="userID" value="{{model.userID}}" style="display: none"/>
+        <input name="webID" value="{{model.webID}}" style="display: none"/>
+        <input name="pageID" value="{{model.pageID}}" style="display: none"/>
+        <input name="widgetID" value="{{model.widget._id}}" style="display: none"/>
+        <button type="submit" class="btn btn-block btn-primary">Upload Image</button>
+    </form>
+
     <a class="btn btn-block btn-danger" ng-click="model.deleteWidget(model.widgetID)" role="button">Delete</a>
 
 </div>
