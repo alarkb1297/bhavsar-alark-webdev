@@ -18,6 +18,7 @@
         model.trustSrc = trustSrc;
         model.youtube_parser = youtube_parser;
         model.trustHtmlContent = trustHtmlContent;
+        model.sortWidgets = sortWidgets;
 
         function init() {
             widgetService
@@ -45,6 +46,14 @@
             } else {
                 return;
             }
+        }
+
+        function sortWidgets(start, end) {
+            widgetService
+                .sortWidgets(model.pageID, start, end)
+                .then(function (widgets) {
+
+                })
         }
 
     }

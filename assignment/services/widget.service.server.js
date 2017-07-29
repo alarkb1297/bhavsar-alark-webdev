@@ -26,6 +26,7 @@ app.get("/api/widget/:widgetID", findWidgetById);
 app.put("/api/widget/:widgetID", updateWidget);
 app.delete("/api/widget/:widgetID", deleteWidget);
 app.post("/api/upload", upload.single('myFile'), uploadImage);
+app.put("/api/page/:pageID/widget", sortWidgets);
 
 
 function createWidget(req, response) {
@@ -134,5 +135,27 @@ function uploadImage(req, res) {
     widget.url = '/uploads/' + filename;
 
     res.redirect(callbackUrl);
+}
+
+function sortWidgets(req, res) {
+
+    var start = req.query.initial;
+    var end = req.query.final;
+    var pageID = req.params.pageID;
+
+    var indices = [];
+    for (var w in widgets) {
+        if (widgets[w].pageId == pageID) {
+            indices.push(w);
+        }
+    }
+
+    var startIndex = indices[start];
+    var endIndex = indices[end];
+
+    widgets.splice(endIndex, 0, widgets.splice(startIndex, 1)[0]);
+
+    res.json(widgets);
+    return;
 }
 

@@ -8,11 +8,34 @@
     function widgetSort() {
 
         function linkFunction(scope, element) {
-            $(element).sortable();
+
+            var start = -1;
+            var end = -1;
+
+            $(element).sortable({
+
+                axis: 'y',
+
+                start: function(event, ui) {
+                    start = $(ui.item).index();
+                },
+                stop: function(event, ui) {
+                    end = $(ui.item).index();
+
+                    scope.widgetCallback({
+                        start: start,
+                        end: end
+                    });
+                }
+
+            });
         }
 
         return {
-            link: linkFunction
+            scope: {
+                widgetCallback: '&'
+            },
+            link: linkFunction,
         }
 
     }

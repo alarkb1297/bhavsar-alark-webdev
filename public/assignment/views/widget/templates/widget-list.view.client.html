@@ -17,7 +17,7 @@
 </nav>
 
 
-<ul class="container-fluid" widget-sort="">
+<ul class="container-fluid" widget-sort widget-callback="model.sortWidgets(start, end)">
 
     <li class="ab-widget-div container-fluid" ng-repeat="widget in model.widgets">
 
@@ -51,6 +51,7 @@
         </div>
 
     </li>
+
 </ul>
 
 

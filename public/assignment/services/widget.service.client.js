@@ -15,7 +15,9 @@
             "findWidgetsByPageId": findWidgetsByPageId,
             "findWidgetById": findWidgetById,
             "deleteWidget": deleteWidget,
-            "updateWidget": updateWidget
+            "updateWidget": updateWidget,
+            "sortWidgets": sortWidgets
+
         };
         return api;
 
@@ -111,6 +113,19 @@
              }
              }
              return null;*/
+        }
+
+        function sortWidgets(pageID, start, end) {
+
+
+            var url = "/api/page/" + pageID + "/widget?initial=" + start + "&final=" + end;
+
+            return $http.put(url)
+                .then(function (response) {
+                    var widgets = response.data;
+                    return widgets;
+                })
+
         }
 
     }
