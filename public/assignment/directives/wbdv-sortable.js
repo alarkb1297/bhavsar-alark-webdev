@@ -3,18 +3,18 @@
     angular
         .module("wbdvDirectives", [])
         .directive("widgetSort", widgetSort);
-    
-    
+
+
     function widgetSort() {
 
-        function linkFunction(element, scope) {
+        function linkFunction(scope, element) {
             $(element).sortable();
         }
 
         return {
             link: linkFunction
         }
-        
+
     }
 
 })();

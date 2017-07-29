@@ -17,7 +17,7 @@
 </nav>
 
 
-<ul widgetSort ng-model="widgets" class="container-fluid">
+<ul class="container-fluid" widget-sort="">
 
     <li class="ab-widget-div container-fluid" ng-repeat="widget in model.widgets">
 
@@ -47,10 +47,10 @@
             <div ng-switch-when="HTML">
                 <ng-include src="'views/widget/templates/widget-html.view.client.html'">
             </div>
+
         </div>
 
     </li>
-
 </ul>
 
 
