@@ -43,15 +43,6 @@ img {
     height: 60px;
 }
 
-a:hover {
-
-    text-decoration: none;
-}
-
-a.list-group-item {
-    color: #337ab7;
-}
-
 .list-group-item {
     border: 0px;
 }
@@ -76,6 +67,19 @@ a.list-group-item {
     top: 0;
     left: 0;
     height: 100%;
+}
+
+a:hover {
+
+    text-decoration: none;
+}
+
+a.list-group-item {
+    color: #337ab7;
+}
+
+.ab-margin-bottom-spacing {
+    margin-bottom: 5px;
 }
 
 .ab-black-icons {

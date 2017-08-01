@@ -25,12 +25,6 @@
                     return page;
                 });
 
-            /*page._id = (new Date()).getTime() + "";
-             page.websiteId = webID;
-
-             pages.push(page);
-
-             return page;*/
         }
 
         function findPagesByWebsiteId(webID) {
@@ -42,15 +36,6 @@
                     var pages = response.data;
                     return pages;
                 });
-
-            /*var pgs = [];
-
-            for (var p in pages) {
-                if (pages[p].websiteId == webID) {
-                    pgs.push(pages[p])
-                }
-            }
-            return pgs;*/
         }
 
         function findPageById(pageID) {
@@ -63,12 +48,6 @@
                     return page;
                 })
 
-            /*for (var p in pages) {
-                if (pages[p]._id == pageID) {
-                    return angular.copy(pages[p]);
-                }
-            }
-            return;*/
         }
 
         function updatePage(pageID, page) {
@@ -81,14 +60,6 @@
                     return page;
                 })
 
-
-            /*for (var p in pages) {
-                if (pages[p]._id == pageID) {
-                    pages[p] = page;
-                    return pages[p];
-                }
-            }
-            return null;*/
         }
 
         function deletePage(pageID) {
@@ -101,13 +72,6 @@
                     return page;
                 })
 
-            /*for (var p in pages) {
-                if (pages[p]._id == pageID) {
-                    pages.splice(p, 1)
-                    return;
-                }
-            }
-            return;*/
         }
 
     }

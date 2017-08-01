@@ -4,7 +4,6 @@
         .module("wbdvDirectives", [])
         .directive("widgetSort", widgetSort);
 
-
     function widgetSort() {
 
         function linkFunction(scope, element) {
@@ -16,10 +15,10 @@
 
                 axis: 'y',
 
-                start: function(event, ui) {
+                start: function (event, ui) {
                     start = $(ui.item).index();
                 },
-                stop: function(event, ui) {
+                stop: function (event, ui) {
                     end = $(ui.item).index();
 
                     scope.widgetCallback({
@@ -35,7 +34,7 @@
             scope: {
                 widgetCallback: '&'
             },
-            link: linkFunction,
+            link: linkFunction
         }
 
     }

@@ -31,12 +31,6 @@
                     return widget;
                 });
 
-            /*widget._id = (new Date()).getTime() + "";
-             widget.pageId = pageID;
-
-             widgets.push(widget);
-
-             return widget;*/
         }
 
         function findWidgetsByPageId(pageID) {
@@ -49,14 +43,6 @@
                     return widgets;
                 });
 
-            /*var wdgts = [];
-
-             for (var w in widgets) {
-             if (widgets[w].pageId == pageID) {
-             wdgts.push(widgets[w]);
-             }
-             }
-             return wdgts;*/
         }
 
         function findWidgetById(widgetID) {
@@ -69,12 +55,6 @@
                     return widget;
                 });
 
-            /*for (var w in widgets) {
-             if (widgets[w]._id == widgetID) {
-             return angular.copy(widgets[w]);
-             }
-             }
-             return;*/
         }
 
         function updateWidget(widgetID, widget) {
@@ -86,14 +66,6 @@
                     var widget = response.data;
                     return widget;
                 });
-
-            /*for (var w in widgets) {
-             if (widgets[w]._id == widgetID) {
-             widgets[w] = widget;
-             return widgets[w];
-             }
-             }
-             return null;*/
         }
 
         function deleteWidget(widgetID) {
@@ -105,18 +77,9 @@
                     var widget = response.data;
                     return widget;
                 });
-
-            /*for (var w in widgets) {
-             if (widgets[w]._id == widgetID) {
-             widgets.splice(w, 1);
-             return;
-             }
-             }
-             return null;*/
         }
 
         function sortWidgets(pageID, start, end) {
-
 
             var url = "/api/page/" + pageID + "/widget?initial=" + start + "&final=" + end;
 
@@ -125,9 +88,7 @@
                     var widgets = response.data;
                     return widgets;
                 })
-
         }
-
     }
 
 

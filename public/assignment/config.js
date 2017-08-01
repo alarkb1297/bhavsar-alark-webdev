@@ -33,7 +33,7 @@
                 controllerAs: "model"
             })
 
-        //website routes
+            //website routes
             .when("/user/:userID/website", {
                 templateUrl: "views/website/templates/website-list.view.client.html",
                 controller: "websiteListController",
@@ -90,6 +90,12 @@
                 controllerAs: "model"
             })
 
+            //flickr routes
+            .when("/user/:userID/website/:webID/page/:pageID/widget/:widgetID/flickr", {
+                templateUrl: "views/widget/templates/widget-flickr-search.view.client.html",
+                controller: "flickrImageSearchController",
+                controllerAs: "model"
+            })
     }
 
 })()
