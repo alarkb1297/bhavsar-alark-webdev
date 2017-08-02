@@ -15,6 +15,8 @@
 
                 axis: 'y',
 
+                handle: '.ab-sort-hamburger',
+
                 start: function (event, ui) {
                     start = $(ui.item).index();
                 },
