@@ -1,0 +1,32 @@
+<div class="container-fluid">
+
+    <h1>Google Books API</h1>
+    <h2>Search By Book Title or Author</h2>
+    <input placeholder="The Sun Also Rises"
+           ng-model="bookTitleOrAuthor"
+           class="form-control"/>
+    <button ng-click="model.searchBookByTitle(bookTitleOrAuthor)" class="btn btn-primary btn-block">
+        Search By Title
+    </button>
+    <button ng-click="model.searchBookByAuthor(bookTitleOrAuthor)" class="btn btn-primary btn-block">
+        Search By Author
+    </button>
+
+    <div ng-show="model.errorMessage" class="alert alert-danger">
+        {{model.errorMessage}}
+    </div>
+
+    <table class="table">
+        <tr ng-repeat="book in model.books">
+            <td>
+                <a href="#!/details/{{book.id}}">
+                    {{book.volumeInfo.title}}
+                </a>
+            </td>
+            <td>
+                <img ng-src="{{book.volumeInfo.imageLinks.thumbnail}}"/>
+            </td>
+        </tr>
+    </table>
+
+</div>

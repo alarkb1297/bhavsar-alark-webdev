@@ -1,0 +1,40 @@
+<div class="container-fluid">
+
+    <h1>Google Books API</h1>
+    <h2>Book Details</h2>
+
+
+    <div class="book-info">
+
+        <img ng-src="{{model.book.volumeInfo.imageLinks.thumbnail}}"/>
+
+        <h3>Title</h3>
+        <p>{{model.book.volumeInfo.title}}</p>
+
+        <h3>Description</h3>
+        <div ng-bind-html="model.trustHtmlContent(model.book.volumeInfo.description)"></div>
+
+        <h3>Author</h3>
+        <div ng-repeat="author in model.book.volumeInfo.authors">
+            {{author}}
+        </div>
+
+        <h3>Genre</h3>
+        <div ng-repeat="category in model.book.volumeInfo.categories">
+            {{category}}
+        </div>
+
+        <h3>Page Count</h3>
+        {{model.book.volumeInfo.pageCount}}
+
+        <h3>Buy Link</h3>
+        {{model.book.saleInfo.buyLink}}
+
+        <h3>List Price</h3>
+        {{model.book.saleInfo.listPrice.currencyCode}} {{model.book.saleInfo.listPrice.amount}}
+
+
+    </div>
+
+
+</div>

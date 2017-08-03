@@ -1,0 +1,15 @@
+input, textarea {
+
+    margin-bottom: 5px;
+}
+
+.btn {
+
+    margin-bottom: 5px;
+}
+
+.book-info {
+    width: 75%;
+    margin: auto;
+    text-align: center;
+}
