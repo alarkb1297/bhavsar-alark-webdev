@@ -38,7 +38,7 @@
             userService.findUserByUsername(user.username)
                 .then(function (_user) {
 
-                    if (_user === "0") {
+                    if (!_user) {
                         return userService.registerUser(user)
                     } else {
                         model.errorMessage = "User already exists";

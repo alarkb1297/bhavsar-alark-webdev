@@ -1,8 +1,7 @@
 <div class="ab-home-bg">
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
 
+    <!--<nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Home</a></li>
@@ -11,10 +10,22 @@
                     <li><a ng-show="currentUser" href="#!/profile/{{currentUser._id}}">Profile</a></li>
                     <li><a ng-show="currentUser" href="#!/login">Logout</a></li>
                     <li><a ng-show="currentUser.isAdmin" href="#!/admin">Admin</a></li>
-                    <li><a href="#!/about">About</a></li>
-                    <li><a href="#!/contact">Contact</a></li>
                 </ul>
-            </div><!--/.nav-collapse -->
+            </div>&lt;!&ndash;/.nav-collapse &ndash;&gt;
+        </div>
+    </nav>-->
+
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a ng-show="!currentUser" href="#!/login">Login</a></li>
+                <li><a ng-show="!currentUser" href="#!/register">Register</a></li>
+                <li><a ng-show="currentUser" href="#!/profile/{{currentUser._id}}">Profile</a></li>
+                <li><a ng-show="currentUser" href="#!/login">Logout</a></li>
+                <li><a ng-show="currentUser.isAdmin" href="#!/admin">Admin</a></li>
+            </ul>
         </div>
     </nav>
 

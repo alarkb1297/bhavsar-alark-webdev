@@ -90,8 +90,8 @@
             return $http.delete(url)
                 .then(function (response) {
 
-                    var user = response.data;
-                    return user;
+                    var status = response.data;
+                    return status;
 
                 });
         }

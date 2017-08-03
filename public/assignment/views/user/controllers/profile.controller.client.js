@@ -51,7 +51,7 @@
 
         function deleteUser(userID) {
             userService.deleteUser(userID)
-                .then(function (user) {
+                .then(function (status) {
                     $location.url("/login");
                 })
         }
