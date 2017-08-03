@@ -28,11 +28,10 @@
         {{model.book.volumeInfo.pageCount}}
 
         <h3>Buy Link</h3>
-        {{model.book.saleInfo.buyLink}}
+        <a href="{{model.book.saleInfo.buyLink}}">{{model.book.saleInfo.buyLink}}</a>
 
         <h3>List Price</h3>
         {{model.book.saleInfo.listPrice.currencyCode}} {{model.book.saleInfo.listPrice.amount}}
-
 
     </div>
 
