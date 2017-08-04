@@ -18,7 +18,7 @@
         <li class="list-group-item active">
             <div class="row">
                 <div class="col-xs-10 col-sm-5 col-md-4 col-lg-4">Name</div>
-                <div class="hidden-xs col-sm-5 col-md-4 col-lg-4">Updated</div>
+                <div class="hidden-xs col-sm-5 col-md-4 col-lg-4">Created</div>
                 <div class="hidden-xs hidden-sm col-md-2 col-lg-2">Visits</div>
                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
                     <a href="#!/user/{{model.userID}}/website/new">
@@ -35,7 +35,7 @@
                         {{website.name}}
                     </a>
                 </div>
-                <div class="hidden-xs col-sm-5 col-md-4 col-lg-4"></div>
+                <div class="hidden-xs col-sm-5 col-md-4 col-lg-4">{{website.dateCreated | date : "short"}}</div>
                 <div class="hidden-xs hidden-sm col-md-2 col-lg-2"></div>
                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
                     <a href="#!/user/{{model.userID}}/website/{{website._id}}">

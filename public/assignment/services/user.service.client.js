@@ -13,14 +13,14 @@
         var api = {
             "findUserByUsername": findUserByUsername,
             "findUserByUsernameAndPassword": findUserByUsernameAndPassword,
-            "findUserByID": findUserByID,
+            "findUserById": findUserById,
             "registerUser": registerUser,
             "updateUser": updateUser,
             "deleteUser": deleteUser
         };
         return api;
 
-        function findUserByID(userID) {
+        function findUserById(userID) {
 
             var url = "/api/users/" + userID;
 
@@ -28,7 +28,6 @@
                 .then(function (response) {
                     var user = response.data;
                     return user;
-
                 });
         }
 
@@ -60,11 +59,8 @@
             var url = "/api/user/" + userID;
 
             return $http.put(url, user)
-                .then(function (response) {
-
-                    var user = response.data;
-                    return user;
-
+                .then(function (status) {
+                    return findUserById(userID);
                 });
 
         }

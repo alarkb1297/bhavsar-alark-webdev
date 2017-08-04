@@ -6,17 +6,19 @@
 
     angular
         .module("WamApp")
-        .service("websiteService", websiteService);
+        .factory("websiteService", websiteService);
 
 
     function websiteService($http) {
 
-
-        this.findWebsitesForUser = findWebsitesForUser;
-        this.createWebsite = createWebsite;
-        this.findWebsiteById = findWebsiteById;
-        this.updateWebsite = updateWebsite;
-        this.deleteWebsite = deleteWebsite;
+        var api = {
+            "findWebsitesForUser": findWebsitesForUser,
+            "createWebsite": createWebsite,
+            "findWebsiteById": findWebsiteById,
+            "updateWebsite": updateWebsite,
+            "deleteWebsite": deleteWebsite
+        };
+        return api;
 
         function findWebsitesForUser(userID) {
 
@@ -25,7 +27,7 @@
             return $http.get(url)
                 .then(function (response) {
                     return response.data;
-            });
+                });
 
         }
 
@@ -35,7 +37,7 @@
 
             return $http.post(url, website)
                 .then(function (response) {
-                  return website = response.data;
+                    return website = response.data;
                 });
         }
 
@@ -55,9 +57,8 @@
             var url = "/api/website/" + webID;
 
             return $http.put(url, website)
-                .then(function (reponse) {
-                    var website = reponse.data;
-                    return website;
+                .then(function (status) {
+                    return findWebsiteById(webID);
                 });
         }
 

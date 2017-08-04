@@ -19,12 +19,12 @@
         model.deleteUser = deleteUser;
 
         function init() {
-            userService.findUserByID(model.userID)
+            userService.findUserById(model.userID)
                 .then(function (user) {
                     model.user = user;
                 })
 
-            //model.user = userService.findUserByID(model.userID);
+            //model.user = userService.findUserById(model.userID);
         }
 
         init();
@@ -33,7 +33,7 @@
 
             userService.findUserByUsername(user.username)
                 .then(function (_user) {
-                    if (_user !== "0" && _user._id === model.userID) {
+                    if (_user !== null && _user._id === model.userID) {
                         return userService.updateUser(user._id, user);
                     } else {
                         model.errorMessage = "User already exists";
@@ -45,7 +45,6 @@
                     $location.url("/profile/" + _user._id);
                     return _user;
                 })
-
         }
 
 

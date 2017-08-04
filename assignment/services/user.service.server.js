@@ -107,8 +107,10 @@ function updateUser(req, response) {
         .updateUser(userID, user)
         .then(function (status) {
             response.json(status);
+            return;
         }, function (err) {
             response.sendStatus(404).send(err);
+            return;
         });
 
     /*for (var u in users) {

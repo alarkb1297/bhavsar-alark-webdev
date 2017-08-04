@@ -21,14 +21,14 @@
         var api = {
             "findUserByUsername": findUserByUsername,
             "findUserByUsernameAndPassword": findUserByUsernameAndPassword,
-            "findUserByID": findUserByID,
+            "findUserById": findUserById,
             "registerUser": registerUser,
             "updateUser": updateUser,
             "deleteUser": deleteUser
         };
         return api;
 
-        function findUserByID(userID) {
+        function findUserById(userID) {
 
             for (var u in users) {
                 var _user = users[u];

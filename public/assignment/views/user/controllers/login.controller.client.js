@@ -27,7 +27,7 @@
             userService.findUserByUsernameAndPassword(user.username, user.password)
                 .then(function (_user) {
 
-                    if (_user === "0") {
+                    if (_user === null) {
                         model.errorMessage = "User Not Found";
                     }
                     else {

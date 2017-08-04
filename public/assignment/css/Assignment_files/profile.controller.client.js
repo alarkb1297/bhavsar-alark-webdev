@@ -22,7 +22,7 @@
         model.deleteUser = deleteUser;
 
         function init() {
-            model.user = userService.findUserByID(userID);
+            model.user = userService.findUserById(userID);
         }
         init();
         

@@ -16,7 +16,7 @@
             {{model.errorMessage}}
         </div>
 
-        <div ng-show="model.confMessage" class="alert alert-success">
+        <div ng-show="model.confMessage" class="ab-margin-bottom-spacing alert alert-success">
             {{model.confMessage}}
         </div>
 
@@ -38,7 +38,6 @@
         <input name="username"
                class="form-control"
                ng-model="model.user.username"
-               value="Alice"
                readonly
                id="username"/>
 
@@ -46,16 +45,17 @@
         <input name="email"
                type="email"
                class="form-control"
-               value="alice@wonderland.com"
+               ng-model="model.user.email"
                placeholder="alice@wonderland.com"
                id="email"/>
 
-        <label for="dob">Date of Birth</label>
-        <input name="dob"
-               type="date"
+        <label for="phone">Phone Number</label>
+        <input name="phone"
+               type="tel"
                class="form-control"
-               placeholder="mm/dd/yyyy"
-               id="dob"/>
+               ng-model="model.user.phone"
+               placeholder="8001234567"
+               id="phone"/>
 
 
         <a class="btn btn-block btn-primary" href="#!/user/{{model.user._id}}/website" role="button">Websites</a>
