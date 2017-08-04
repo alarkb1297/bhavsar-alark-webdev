@@ -56,8 +56,7 @@
 
             return $http.put(url, page)
                 .then(function (response) {
-                    var page = response.data;
-                    return page;
+                    return findPageById(pageID);
                 })
 
         }

@@ -21,15 +21,15 @@ function findWebsitesForUser(userID) {
         .exec();
 }
 
-function findWebsiteById(websiteID) {
-    return websiteModel.findById(websiteID);
+function findWebsiteById(webID) {
+    return websiteModel.findById(webID);
 }
 
-function updateWebsite(websiteID, website) {
-    return websiteModel.update({_id: websiteID},
+function updateWebsite(webID, website) {
+    return websiteModel.update({_id: webID},
         {$set: website});
 }
 
-function deleteWebsite(websiteID) {
-    return websiteSchema.remove({_id: websiteID});
+function deleteWebsite(webID) {
+    return websiteModel.remove({_id: webID});
 }

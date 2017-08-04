@@ -26,8 +26,10 @@ function findWebsitesForUser(req, response) {
         .findWebsitesForUser(userID)
         .then(function (websites) {
             response.json(websites);
+            return;
         }, function (err) {
             response.sendStatus(404).send(err);
+            return;
         });
 
     // var sites = [];
@@ -49,8 +51,10 @@ function findWebsiteById(req, response) {
         .findWebsiteById(webID)
         .then(function (website) {
             response.json(website);
+            return;
         }, function (err) {
             response.sendStatus(404).send(err);
+            return;
         });
 
     // for (var w in websites) {
@@ -73,6 +77,7 @@ function createWebsite(req, response) {
         .createWebsiteForUser(userID, website)
         .then(function (website) {
             response.json(website);
+            return;
         });
 
     // website._id = (new Date()).getTime() + "";
@@ -87,12 +92,13 @@ function deleteWebsite(req, response) {
 
     var webID = req.params.webID;
 
-    websiteModel
-        .deleteWebsite(webID)
+    websiteModel.deleteWebsite(webID)
         .then(function (status) {
-            response.json(status)
+            response.json(status);
+            return;
         }, function (err) {
             response.sendStatus(404).send(err);
+            return;
         });
 
     // for (var w in websites) {
@@ -114,8 +120,10 @@ function updateWebsite(req, response) {
         .updateWebsite(webID, website)
         .then(function (status) {
             response.json(status)
+            return;
         }, function (err) {
             response.sendStatus(404).send(err);
+            return;
         });
 
 

@@ -23,6 +23,7 @@ function findUserById(req, response) {
         .findUserById(req.params.userID)
         .then(function (user) {
             response.json(user);
+            return;
         })
 
     /*for (var u in users) {
@@ -90,6 +91,7 @@ function registerUser(req, response) {
         .createUser(user)
         .then(function (user) {
             response.json(user);
+            return;
         })
 
     // user._id = (new Date()).getTime() + "";
@@ -132,8 +134,10 @@ function deleteUser(req, response) {
         .deleteUser(userID)
         .then(function (status) {
             response.json(status);
+            return;
         }, function (err) {
             response.sendStatus(404).send(err);
+            return;
         });
 
     // for (var u in users) {

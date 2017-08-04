@@ -24,7 +24,6 @@
                 .then(function (websites) {
                     model.websites = websites;
                 })
-
         }
 
         init();
