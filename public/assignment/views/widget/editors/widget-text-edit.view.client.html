@@ -20,19 +20,39 @@
 <div class="container-fluid">
 
     <label for="widgetName">Name</label>
-    <input name="pageName"
+    <input name="widgetName"
            class="form-control"
            ng-model="model.widget.name"
            placeholder="Name"
            id="widgetName"/>
 
-    <div class="ab-margin-bottom-spacing"
-         ng-model="model.widget.text"
-         text-angular
-         ta-toolbar="[['h1','h2','h3'],['bold','italics','underline','strikeThrough'],
-        ['ul','ol'],['justifyLeft','justifyCenter','justifyRight','justifyFull'],
-        ['indent','outdent'],['html']]">
-    </div>
+    <label for="widgetText">Text</label>
+    <input name="widgetText"
+           class="form-control"
+           ng-model="model.widget.text"
+           placeholder="Text"
+           id="widgetText"/>
+
+    <label for="widgetRows">Rows</label>
+    <input name="widgetRows"
+           type="number"
+           class="form-control"
+           ng-model="model.widget.rows"
+           placeholder="4"
+           id="widgetRows"/>
+
+    <label for="widgetPlaceholder">Placeholder</label>
+    <input name="widgetPlaceholder"
+           class="form-control"
+           ng-model="model.widget.placeholder"
+           placeholder="Placeholder"
+           id="widgetPlaceholder"/>
+
+    <label for="widgetFormatted">Formatted</label>
+    <input name="widgetFormatted"
+           ng-model="model.widget.formatted"
+           type="checkbox"
+           id="widgetFormatted"/>
 
     <a class="btn btn-block btn-danger" ng-click="model.deleteWidget(model.widgetID)" role="button">Delete</a>
 

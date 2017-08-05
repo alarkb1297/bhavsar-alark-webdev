@@ -63,8 +63,7 @@
 
             return $http.put(url, widget)
                 .then(function (response) {
-                    var widget = response.data;
-                    return widget;
+                    return findWidgetById(widgetID);
                 });
         }
 

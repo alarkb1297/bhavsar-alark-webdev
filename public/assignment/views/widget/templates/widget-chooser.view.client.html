@@ -21,7 +21,7 @@
 
             <li>
                 <a class="list-group-item" ng-click="model
-                .createWidget({'_id': '', 'widgetType': 'HEADING', 'pageId': '', 'size': 0, 'text': ''})">
+                .createWidget({'widgetType': 'HEADING', 'size': 0, 'text': ''})">
                     Header
                 </a>
             </li>
@@ -35,14 +35,14 @@
 
             <li>
                 <a class="list-group-item" ng-click="model
-                .createWidget({'_id': '', 'widgetType': 'HTML', 'pageId': '', 'text': ''})">
+                .createWidget({'widgetType': 'HTML', 'text': ''})">
                     HTML
                 </a>
             </li>
 
             <li>
                 <a class="list-group-item"
-                   href="#!/user/{{model.userID}}/website/{{model.webID}}/page/{{model.pageID}}/widget/new">
+                   ng-click="model.createWidget({'widgetType': 'TEXT', 'size': 0, 'text': '', 'formatted': true})">
                     Text Input
                 </a>
             </li>
@@ -63,16 +63,14 @@
 
             <li>
                 <a class="list-group-item" ng-click="model
-                .createWidget({'_id': '', 'widgetType': 'IMAGE', 'pageId': '',
-                'width': '100%', 'size': 0, 'text': '', 'url': ''})">
+                .createWidget({'widgetType': 'IMAGE', 'width': '100%', 'size': 0, 'text': '', 'url': ''})">
                     Image
                 </a>
             </li>
 
             <li>
                 <a class="list-group-item" ng-click="model
-                .createWidget({'_id': '', 'widgetType': 'YOUTUBE', 'pageId': '',
-                'width': '100%', 'size': 0, 'text': '', 'url': ''})">
+                .createWidget({'widgetType': 'YOUTUBE', 'width': '100%', 'size': 0, 'text': '', 'url': ''})">
                     YouTube
                 </a>
             </li>

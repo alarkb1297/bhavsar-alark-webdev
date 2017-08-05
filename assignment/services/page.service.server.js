@@ -20,8 +20,8 @@ function createPage(req, response) {
 
     pageModel
         .createPage(webID, page)
-        .then(function (website) {
-            response.json(website);
+        .then(function (page) {
+            response.json(page);
         });
 
     // page._id = (new Date()).getTime() + "";
