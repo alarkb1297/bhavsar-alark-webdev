@@ -1,6 +1,24 @@
 <div class="container-fluid">
 
-    <h1>Google Books API</h1>
+
+    <div class="ab-search-box">
+
+        <h1 class="ab-booKlub-orange-large">booKlub</h1>
+
+        <input placeholder="The Sun Also Rises"
+               ng-model="bookTitleOrAuthor"
+               class="form-control"/>
+        <button ng-click="model.searchBookByTitle(bookTitleOrAuthor)" class="btn btn-primary btn-block">
+            Search By Title
+        </button>
+        <button ng-click="model.searchBookByAuthor(bookTitleOrAuthor)" class="btn btn-primary btn-block">
+            Search By Author
+        </button>
+
+    </div>
+
+
+    <!--<h1>Google Books API</h1>
     <h3>Search By Book Title or Author</h3>
     <input placeholder="The Sun Also Rises"
            ng-model="bookTitleOrAuthor"
@@ -27,5 +45,5 @@
                 <img ng-src="{{book.volumeInfo.imageLinks.thumbnail}}"/>
             </td>
         </tr>
-    </table>
+    </table>-->
 </div>
