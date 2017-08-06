@@ -1,10 +1,4 @@
-input, textarea {
-
-    margin-bottom: 5px;
-}
-
-.btn {
-
+input, textarea, .btn, img {
     margin-bottom: 5px;
 }
 
@@ -14,20 +8,19 @@ input, textarea {
     text-align: center;
 }
 
-.ab-search-box {
+.ab-search {
     width: 600px;
     margin: auto;
+    margin-top: 10px;
     text-align: justify;
 }
 
-.ab-booKlub-orange-large {
-    color: orange;
-    font-family: "Comic Sans MS", sans-serif;
-    font-weight: bold;
+.ab-search-box.img {
+    margin-bottom: 5px;
 }
 
 .ab-wood-bg {
-    background-image: url("http://wickes.scene7.com/is/image/travisperkins/largeNormal/Decorative-Wallpaper-Superfresco-Colour-Kia-Decorative-Wallpaper-Cream~G0205_142325_00?defaultImage=travisperkins/missing-product"), url("http://i.stack.imgur.com/jGlzr.png");
+    background-image: url("http://wickes.scene7.com/is/image/travisperkins/largeNormal/Decorative-Wallpaper-Superfresco-Colour-Kia-Decorative-Wallpaper-Cream~G0205_142325_00?defaultImage=travisperkins/missing-product"), url("http://wallpapercave.com/wp/BhcQpIw.jpg");
     background-size: 60%, cover;
     background-position: center;
     background-repeat: repeat-y, repeat-y;
