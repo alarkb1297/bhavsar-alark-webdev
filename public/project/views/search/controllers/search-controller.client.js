@@ -31,11 +31,11 @@
 
         function searchBookByTitle(bookTitle) {
 
-            model.searchQuery = bookTitle;
+            if (bookTitle) {
 
-            $location.url("/title/" + model.searchQuery);
+                model.searchQuery = bookTitle;
+                $location.url("/title/" + model.searchQuery);
 
-            if (model.searchQuery) {
                 model.errorMessage = null;
                 bookService
                     .searchBookByTitle(model.searchQuery)
@@ -50,11 +50,11 @@
 
         function searchBookByAuthor(bookAuthor) {
 
-            model.searchQuery = bookAuthor;
+            if (bookAuthor) {
 
-            $location.url("/author/" + model.searchQuery);
+                model.searchQuery = bookAuthor;
+                $location.url("/author/" + model.searchQuery);
 
-            if (model.searchQuery) {
                 model.errorMessage = null;
                 bookService
                     .searchBookByAuthor(model.searchQuery)
