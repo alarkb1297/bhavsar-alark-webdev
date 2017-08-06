@@ -29,7 +29,7 @@ body {
 }
 
 .ab-wood-bg {
-    background-image: url("https://images.freecreatives.com/wp-content/uploads/2015/04/1073233-black-wood-panels.jpg");
+    background-image: url("http://bhavsar-alark-webdev.herokuapp.com/project/background/wood-background.jpg");
     background-size: cover;
     background-repeat: repeat-y;
     background-attachment: fixed;
