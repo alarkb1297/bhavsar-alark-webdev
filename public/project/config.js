@@ -12,6 +12,11 @@
                 controller: "searchController",
                 controllerAs: "model"
             })
+            .when("/:searchQuery", {
+                templateUrl: "./views/search/templates/search.html",
+                controller: "searchController",
+                controllerAs: "model"
+            })
             .when("/details/:volumeId", {
                 templateUrl: "./views/details/templates/details.html",
                 controller: "detailsController",

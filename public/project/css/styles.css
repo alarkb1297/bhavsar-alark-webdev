@@ -2,6 +2,15 @@ input, textarea, .btn, img {
     margin-bottom: 5px;
 }
 
+body {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.ab-margin-bottom-spacing {
+    margin-bottom: 5px;
+}
+
 .ab-book-details {
     width: 75%;
     margin: auto;
@@ -9,10 +18,10 @@ input, textarea, .btn, img {
 }
 
 .ab-search {
-    width: 600px;
+    width: 80%;
     margin: auto;
     margin-top: 10px;
-    text-align: justify;
+    text-align: center;
 }
 
 .ab-search-box.img {
@@ -20,8 +29,38 @@ input, textarea, .btn, img {
 }
 
 .ab-wood-bg {
-    background-image: url("http://wickes.scene7.com/is/image/travisperkins/largeNormal/Decorative-Wallpaper-Superfresco-Colour-Kia-Decorative-Wallpaper-Cream~G0205_142325_00?defaultImage=travisperkins/missing-product"), url("http://wallpapercave.com/wp/BhcQpIw.jpg");
-    background-size: 60%, cover;
-    background-position: center;
-    background-repeat: repeat-y, repeat-y;
+    background-image: url("https://images.freecreatives.com/wp-content/uploads/2015/04/1073233-black-wood-panels.jpg");
+    background-size: cover;
+    background-repeat: repeat-y;
+    background-attachment: fixed;
+}
+
+.ab-home-navbar-buttons {
+    margin-right: 10px;
+}
+
+.ab-home-navbar-logo {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.ab-home-links {
+    color: whitesmoke;
+}
+
+.ab-details-text {
+    color: whitesmoke;
+}
+
+.ab-details-search {
+    margin-top: 7px;
+}
+
+.ab-logo-color {
+    color: orange;
+}
+
+.list-group-item {
+    background-color: transparent;
+    border-color: transparent;
 }

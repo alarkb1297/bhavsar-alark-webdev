@@ -1,39 +1,60 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+
+    <a class="navbar-brand navbar-left" href="#!">
+        <img class="ab-home-navbar-logo"
+             src="http://bhavsar-alark-webdev.herokuapp.com/project/logos/bK-small-79px.png">
+    </a>
+
+    <div class="col-xs-6 pull-right ab-details-search">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search booKlub...">
+            <span class="input-group-btn">
+                <button class="btn btn-primary" type="button">Search</button>
+            </span>
+        </div>
+    </div>
+
+</nav>
+
 <div class="container-fluid">
-
-    <h1>Google Books API</h1>
-    <h2>Book Details</h2>
-
 
     <div class="ab-book-details">
 
         <img ng-src="{{model.book.volumeInfo.imageLinks.thumbnail}}"/>
 
-        <h3>Title</h3>
-        <p>{{model.book.volumeInfo.title}}</p>
+        <h3 class="ab-details-text">Title</h3>
+        <p class="ab-details-text">{{model.book.volumeInfo.title}}</p>
 
-        <h3>Description</h3>
-        <div ng-bind-html="model.trustHtmlContent(model.book.volumeInfo.description)"></div>
+        <h3 class="ab-details-text">Description</h3>
+        <div class="ab-details-text" ng-bind-html="model.trustHtmlContent(model.book.volumeInfo.description)"></div>
 
-        <h3>Author</h3>
-        <div ng-repeat="author in model.book.volumeInfo.authors">
+        <h3 class="ab-details-text">Author</h3>
+        <div class="ab-details-text" ng-repeat="author in model.book.volumeInfo.authors">
             {{author}}
         </div>
 
-        <h3>Genre</h3>
-        <div ng-repeat="category in model.book.volumeInfo.categories">
+        <h3 class="ab-details-text">Genre</h3>
+        <div class="ab-details-text" ng-repeat="category in model.book.volumeInfo.categories">
             {{category}}
         </div>
 
-        <h3>Page Count</h3>
-        {{model.book.volumeInfo.pageCount}}
+        <h3 class="ab-details-text">Page Count</h3>
+        <p class="ab-details-text">{{model.book.volumeInfo.pageCount}}</p>
 
-        <h3>Buy Link</h3>
-        <a href="{{model.book.saleInfo.buyLink}}">{{model.book.saleInfo.buyLink}}</a>
+        <h3 class="ab-details-text">Buy Link</h3>
+        <a class="ab-details-text" href="{{model.book.saleInfo.buyLink}}">{{model.book.saleInfo.buyLink}}</a>
 
-        <h3>List Price</h3>
-        {{model.book.saleInfo.listPrice.currencyCode}} {{model.book.saleInfo.listPrice.amount}}
+        <h3 class="ab-details-text">List Price</h3>
+        <p class="ab-details-text">
+            {{model.book.saleInfo.listPrice.currencyCode}} {{model.book.saleInfo.listPrice.amount}}</p>
 
     </div>
-
-
 </div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+
+    <a href="#!/profile/{{model.userID}}">
+        <span class="pull-right glyphicon glyphicon-user ab-logo-color btn-lg"></span>
+    </a>
+
+</nav>

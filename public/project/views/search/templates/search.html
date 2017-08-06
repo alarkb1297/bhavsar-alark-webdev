@@ -1,11 +1,24 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+
+    <a class="navbar-brand navbar-left" href="#!">
+        <img class="ab-home-navbar-logo" src="http://bhavsar-alark-webdev.herokuapp.com/project/logos/bK-small-79px.png">
+    </a>
+
+    <div class="btn-group pull-right ab-home-navbar-buttons">
+        <button type="button" class="btn navbar-btn btn-primary">Register</button>
+        <button type="button" class="btn navbar-btn btn-success">Sign in</button>
+    </div>
+</nav>
+
+
 <div class="container-fluid">
 
     <div class="ab-search">
 
-        <img src="http://bhavsar-alark-webdev.herokuapp.com/project/logos/booKlub-large-1234px.png" , width="600px">
+        <img src="http://bhavsar-alark-webdev.herokuapp.com/project/logos/booKlub-large-1234px.png" width="100%">
 
         <input placeholder="The Sun Also Rises"
-               ng-model="bookTitleOrAuthor"
+               ng-model="model.bookTitleOrAuthor"
                class="form-control"/>
         <button ng-click="model.searchBookByTitle(bookTitleOrAuthor)" class="btn btn-primary btn-block">
             Search By Title
@@ -19,55 +32,20 @@
         </div>
 
 
-        <table class="table">
-            <tr ng-repeat="book in model.books">
-                <td>
-                    <a href="#!/details/{{book.id}}">
-                        {{book.volumeInfo.title}}
-                    </a>
-                </td>
-                <td>
-                    <img ng-src="{{book.volumeInfo.imageLinks.thumbnail}}"/>
-                </td>
-            </tr>
-        </table>
+        <ul class="list-group">
+            <li ng-repeat="book in model.books" class="list-group-item media">
+                <div class="row">
+                    <div class="col-sm-8 ab-margin-bottom-spacing">
+                        <a class="ab-home-links" href="#!/details/{{book.id}}">
+                            {{book.volumeInfo.title}}
+                        </a>
+                    </div>
 
-
+                    <div class="col-sm-4">
+                        <img ng-src="{{book.volumeInfo.imageLinks.thumbnail}}" sizes="50%"/>
+                    </div>
+                </div>
+            </li>
+        </ul>
     </div>
-
 </div>
-
-
-
-<!--<ul class="list-group">-->
-
-    <!--<li class="list-group-item active">-->
-        <!--<div class="row">-->
-            <!--<div class="col-xs-10 col-sm-5 col-md-4 col-lg-4">Name</div>-->
-            <!--<div class="hidden-xs col-sm-5 col-md-4 col-lg-4">Created</div>-->
-            <!--<div class="hidden-xs hidden-sm col-md-2 col-lg-2">Visits</div>-->
-            <!--<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">-->
-                <!--<a href="#!/user/{{model.userID}}/website/new">-->
-                    <!--<span class="pull-right glyphicon glyphicon-plus ab-white-icons"></span>-->
-                <!--</a>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</li>-->
-
-    <!--<li ng-repeat="website in model.websites track by $index" class="list-group-item">-->
-        <!--<div class="row">-->
-            <!--<div class="col-xs-10 col-sm-5 col-md-4 col-lg-4">-->
-                <!--<a href="#!/user/{{model.userID}}/website/{{website._id}}/page">-->
-                    <!--{{website.name}}-->
-                <!--</a>-->
-            <!--</div>-->
-            <!--<div class="hidden-xs col-sm-5 col-md-4 col-lg-4">{{website.dateCreated | date : "short"}}</div>-->
-            <!--<div class="hidden-xs hidden-sm col-md-2 col-lg-2"></div>-->
-            <!--<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">-->
-                <!--<a href="#!/user/{{model.userID}}/website/{{website._id}}">-->
-                    <!--<span class="pull-right glyphicon glyphicon-cog"></span>-->
-                <!--</a>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</li>-->
-<!--</ul>-->
