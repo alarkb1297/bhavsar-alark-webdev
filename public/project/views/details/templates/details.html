@@ -5,18 +5,43 @@
              src="http://bhavsar-alark-webdev.herokuapp.com/project/logos/bK-small-79px.png">
     </a>
 
-    <div class="col-xs-6 pull-right ab-details-search">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search booKlub...">
+    <!--<div class="col-xs-9 pull-right ab-details-search">
+        <div class="input-group btn-group">
+            <input type="text" class="form-control" placeholder="Search book by...">
             <span class="input-group-btn">
-                <button class="btn btn-primary" type="button">Search</button>
+                <button class="btn btn-primary" type="button">Title</button>
             </span>
+            <span class="input-group-btn">
+                <button class="btn btn-primary" type="button">Author</button>
+            </span>
+        </div>
+    </div>-->
+
+    <div class="col-xs-9 pull-right ab-details-search">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search Books" ng-model="searchQuery">
+            <div class="input-group-btn">
+                <button type="button"
+                        class="btn btn-default dropdown-toggle"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="true">By <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li><a ng-click="model.searchBookByTitle(searchQuery)">Title</a></li>
+                    <li><a ng-click="model.searchBookByAuthor(searchQuery)">Author</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 
 </nav>
 
 <div class="container-fluid">
+
+    <div ng-show="model.errorMessage" class="alert alert-danger">
+        {{model.errorMessage}}
+    </div>
 
     <div class="ab-book-details">
 
@@ -41,12 +66,14 @@
         <h3 class="ab-details-text">Page Count</h3>
         <p class="ab-details-text">{{model.book.volumeInfo.pageCount}}</p>
 
-        <h3 class="ab-details-text">Buy Link</h3>
-        <a class="ab-details-text" href="{{model.book.saleInfo.buyLink}}">{{model.book.saleInfo.buyLink}}</a>
+        <div ng-show="model.book.saleInfo.buyLink">
+            <h3 class="ab-details-text">Buy Link</h3>
+            <a class="ab-details-text" href="{{model.book.saleInfo.buyLink}}">{{model.book.saleInfo.buyLink}}</a>
 
-        <h3 class="ab-details-text">List Price</h3>
-        <p class="ab-details-text">
-            {{model.book.saleInfo.listPrice.currencyCode}} {{model.book.saleInfo.listPrice.amount}}</p>
+            <h3 class="ab-details-text">List Price</h3>
+            <p class="ab-details-text">
+                {{model.book.saleInfo.listPrice.currencyCode}} {{model.book.saleInfo.listPrice.amount}}</p>
+        </div>
 
     </div>
 </div>
