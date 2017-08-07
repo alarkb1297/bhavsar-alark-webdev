@@ -26,6 +26,7 @@
             }
 
         }
+
         init();
 
 
@@ -41,7 +42,11 @@
                     .searchBookByTitle(model.searchQuery)
                     .then(function (response) {
                         var books = response.items;
-                        model.books = books;
+                        if (!books) {
+                            model.errorMessage = "No results found";
+                        } else {
+                            model.books = books;
+                        }
                     });
             } else {
                 model.errorMessage = "Please enter a title value";
@@ -60,7 +65,11 @@
                     .searchBookByAuthor(model.searchQuery)
                     .then(function (response) {
                         var books = response.items;
-                        model.books = books;
+                        if (!books) {
+                            model.errorMessage = "No results found";
+                        } else {
+                            model.books = books;
+                        }
                     });
             } else {
                 model.errorMessage = "Please enter an author value";
