@@ -2,7 +2,7 @@
 
     <a class="navbar-brand navbar-left" href="#!">
         <img class="ab-home-navbar-logo"
-             src="http://bhavsar-alark-webdev.herokuapp.com/project/logos/bK-small-79px.png">
+             src="http://bhavsar-alark-webdev.herokuapp.com/project/logos/bK-medium-208px.png">
     </a>
 
     <!--<div class="col-xs-9 pull-right ab-details-search">
@@ -47,31 +47,31 @@
 
         <img ng-src="{{model.book.volumeInfo.imageLinks.thumbnail}}"/>
 
-        <h3 class="ab-details-text">Title</h3>
-        <p class="ab-details-text">{{model.book.volumeInfo.title}}</p>
+        <h3 class="ab-text">Title</h3>
+        <p class="ab-text">{{model.book.volumeInfo.title}}</p>
 
-        <h3 class="ab-details-text">Description</h3>
-        <div class="ab-details-text" ng-bind-html="model.trustHtmlContent(model.book.volumeInfo.description)"></div>
+        <h3 class="ab-text">Description</h3>
+        <div class="ab-text" ng-bind-html="model.trustHtmlContent(model.book.volumeInfo.description)"></div>
 
-        <h3 class="ab-details-text">Author</h3>
-        <div class="ab-details-text" ng-repeat="author in model.book.volumeInfo.authors">
+        <h3 class="ab-text">Author</h3>
+        <div class="ab-text" ng-repeat="author in model.book.volumeInfo.authors">
             {{author}}
         </div>
 
-        <h3 class="ab-details-text">Genre</h3>
-        <div class="ab-details-text" ng-repeat="category in model.book.volumeInfo.categories">
+        <h3 class="ab-text">Genre</h3>
+        <div class="ab-text" ng-repeat="category in model.book.volumeInfo.categories">
             {{category}}
         </div>
 
-        <h3 class="ab-details-text">Page Count</h3>
-        <p class="ab-details-text">{{model.book.volumeInfo.pageCount}}</p>
+        <h3 class="ab-text">Page Count</h3>
+        <p class="ab-text">{{model.book.volumeInfo.pageCount}}</p>
 
         <div ng-show="model.book.saleInfo.buyLink">
-            <h3 class="ab-details-text">Buy Link</h3>
-            <a class="ab-details-text" href="{{model.book.saleInfo.buyLink}}">{{model.book.saleInfo.buyLink}}</a>
+            <h3 class="ab-text">Buy Link</h3>
+            <a class="ab-text" href="{{model.book.saleInfo.buyLink}}">{{model.book.saleInfo.buyLink}}</a>
 
-            <h3 class="ab-details-text">List Price</h3>
-            <p class="ab-details-text">
+            <h3 class="ab-text">List Price</h3>
+            <p class="ab-text">
                 {{model.book.saleInfo.listPrice.currencyCode}} {{model.book.saleInfo.listPrice.amount}}</p>
         </div>
 
@@ -80,6 +80,9 @@
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
 
+    <a href="#!/profile/{{model.userID}}">
+        <span class="pull-left glyphicon glyphicon-saved ab-logo-color btn-lg"></span>
+    </a>
     <a href="#!/profile/{{model.userID}}">
         <span class="pull-right glyphicon glyphicon-user ab-logo-color btn-lg"></span>
     </a>

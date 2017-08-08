@@ -35,7 +35,7 @@
             if (bookTitle) {
 
                 model.searchQuery = bookTitle;
-                $location.url("/title/" + model.searchQuery);
+                $location.url("/search/title/" + model.searchQuery);
 
                 model.errorMessage = null;
                 bookService
@@ -58,7 +58,7 @@
             if (bookAuthor) {
 
                 model.searchQuery = bookAuthor;
-                $location.url("/author/" + model.searchQuery);
+                $location.url("/search/author/" + model.searchQuery);
 
                 model.errorMessage = null;
                 bookService

@@ -32,7 +32,7 @@
                 bookService
                     .searchBookByTitle(bookTitle)
                     .then(function (response) {
-                        $location.path("/title/" + bookTitle);
+                        $location.path("/search/title/" + bookTitle);
                     })
             } else {
                 model.errorMessage = "Please enter a title value";
@@ -45,7 +45,7 @@
                 bookService
                     .searchBookByTitle(bookAuthor)
                     .then(function (response) {
-                        $location.path("/author/" + bookAuthor);
+                        $location.path("/search/author/" + bookAuthor);
                     })
             } else {
                 model.errorMessage = "Please enter a author value";

@@ -21,7 +21,7 @@
                 controllerAs: "model"
             })
             .when("/details/:imdbID", {
-                templateURL: "details.html",
+                templateURL: "details.view.client.html",
                 controller: "detailsController",
                 controllerAs: "model"
             })

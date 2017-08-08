@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Project</title>
+    <title>booKlub</title>
 
     <!--JQuery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -23,6 +23,16 @@
     <script src="app.js"></script>
     <script src="config.js"></script>
 
+    <script>
+        $(document).ready(function () {
+            $(".btn-pref .btn").click(function () {
+                $(".btn-pref .btn").removeClass("btn-primary").addClass("btn-default");
+                // $(".tab").addClass("active"); // instead of this do the below
+                $(this).removeClass("btn-default").addClass("btn-primary");
+            });
+        });
+    </script>
+
     <!-- Bootstrap core CSS -->
     <link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap theme -->
@@ -30,18 +40,24 @@
     <!--Bootstrap JS-->
     <script src="../vendor/bootstrap/dist/js/dropdown.js"></script>
 
-
     <!--stylesheets-->
     <link href="./css/styles.css" rel="stylesheet">
 
     <!--search controller-->
-    <script src="views/search/controllers/search-controller.client.js"></script>
+    <script src="views/search/controllers/search.controller.client.js"></script>
 
     <!--details controller-->
-    <script src="views/details/controllers/details-controller.client.js"></script>
+    <script src="views/details/controllers/details.controller.client.js"></script>
+
+    <!--user controllers-->
+    <script src="views/user/controllers/login.controller.client.js"></script>
+    <script src="views/user/controllers/register.controller.client.js"></script>
+    <script src="views/user/controllers/profile.controller.client.js"></script>
 
     <!--services-->
-    <script src="services/bookService.js"></script>
+    <script src="services/book.service.client.js"></script>
+    <script src="services/user.service.client.js"></script>
+
 
 </head>
 

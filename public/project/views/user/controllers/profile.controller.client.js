@@ -1,11 +1,7 @@
-/**
- * Created by Alark on 7/17/17.
- */
-
 (function () {
 
     angular
-        .module("WamApp")
+        .module("booKlub")
         .controller("profileController", profileController);
 
 
@@ -13,27 +9,26 @@
 
         var model = this;
 
-        model.userID = $routeParams.userID;
+        model.userId = $routeParams.userId;
 
         model.updateUser = updateUser;
         model.deleteUser = deleteUser;
 
         function init() {
-            userService.findUserById(model.userID)
+            userService.findUserById(model.userId)
                 .then(function (user) {
                     model.user = user;
-                })
-
-            //model.user = userService.findUserById(model.userID);
+                });
         }
 
         init();
+
 
         function updateUser(user) {
 
             userService.findUserByUsername(user.username)
                 .then(function (_user) {
-                    if (_user !== null && _user._id === model.userID) {
+                    if (_user !== null && _user._id === model.userId) {
                         return userService.updateUser(user._id, user);
                     } else {
                         model.errorMessage = "User already exists";
@@ -54,7 +49,6 @@
                     $location.url("/login");
                 })
         }
-
     }
 
 })();

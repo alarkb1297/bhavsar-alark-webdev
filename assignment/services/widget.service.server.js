@@ -191,8 +191,6 @@ function sortWidgets(req, response) {
     widgetModel
         .reorderWidget(pageID, start, end)
         .then(function (widgets) {
-            console.log("in server service")
-            console.log(widgets);
             response.json(widgets);
         })
 

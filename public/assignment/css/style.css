@@ -109,6 +109,8 @@ a.list-group-item {
 .ab-home-bg {
     background-image: url("http://cdn.akamai.steamstatic.com/steamcommunity/public/images/items/383690/f7a121a3f7a929ffb4dbc3ae241b3b4b6eaaed1d.jpg");
     background-size: contain;
+    background-repeat: repeat-y;
+    background-attachment: fixed;
 }
 
 @media (min-width: 992px) {
