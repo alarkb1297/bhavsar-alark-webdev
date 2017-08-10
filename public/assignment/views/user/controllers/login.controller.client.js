@@ -24,7 +24,8 @@
                 return;
             }
 
-            userService.findUserByUsernameAndPassword(user.username, user.password)
+            userService
+                .login(user.username, user.password)
                 .then(function (_user) {
 
                     if (_user === null) {
@@ -32,7 +33,7 @@
                     }
                     else {
                         $rootScope.currentUser = _user;
-                        $location.url("profile/" + _user._id);
+                        $location.url("profile/");
                     }
                 })
 

@@ -9,11 +9,11 @@
         .controller("profileController", profileController);
 
 
-    function profileController($routeParams, userService, $location) {
+    function profileController($routeParams, userService, $location, user) {
 
         var model = this;
 
-        model.userID = $routeParams.userID;
+        model.userID = user._id;
 
         model.updateUser = updateUser;
         model.deleteUser = deleteUser;
@@ -42,7 +42,7 @@
                 })
                 .then(function (_user) {
                     model.confMessage = "User successfully updated";
-                    $location.url("/profile/" + _user._id);
+                    $location.url("/profile");
                     return _user;
                 })
         }

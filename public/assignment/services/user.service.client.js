@@ -12,13 +12,21 @@
 
         var api = {
             "findUserByUsername": findUserByUsername,
-            "findUserByUsernameAndPassword": findUserByUsernameAndPassword,
+            "login": login,
             "findUserById": findUserById,
             "registerUser": registerUser,
             "updateUser": updateUser,
-            "deleteUser": deleteUser
+            "deleteUser": deleteUser,
+            "checkLogin" : checkLogin
         };
         return api;
+
+        function checkLogin() {
+            return $http.get("/api/checkLogin")
+                .then(function (response) {
+                    return response.data;
+                })
+        }
 
         function findUserById(userID) {
 
@@ -31,12 +39,13 @@
                 });
         }
 
-        function findUserByUsernameAndPassword(username, password) {
+        function login(username, password) {
 
-            var url = "/api/user?username=" + username + "&password=" + password;
+            var url = "/api/login";
 
-            return $http.get(url)
+            return $http.post(url, {username: username, password: password})
                 .then(function (response) {
+                    console.log(response);
                     var user = response.data;
                     return user;
                 });
@@ -71,10 +80,8 @@
 
             return $http.post(url, user)
                 .then(function (response) {
-
                     var user = response.data;
                     return user;
-
                 });
 
         }

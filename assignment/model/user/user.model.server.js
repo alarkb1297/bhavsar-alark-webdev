@@ -10,6 +10,7 @@ userModel.findUserByUsername = findUserByUsername;
 userModel.deleteUser = deleteUser;
 userModel.addWebsite = addWebsite;
 userModel.removeWebsite = removeWebsite;
+userModel.findUserByGoogleId = findUserByGoogleId;
 module.exports = userModel;
 
 function createUser(user) {
@@ -54,4 +55,9 @@ function removeWebsite(userID, websiteID) {
             user.websites.splice(index, 1);
             return user.save();
         });
+}
+
+function findUserByGoogleId(googleID) {
+    return userModel
+        .findOne({"google.id" : googleID});
 }

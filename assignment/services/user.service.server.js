@@ -1,21 +1,103 @@
 var app = require("../../express");
 var userModel = require("../model/user/user.model.server");
-
-var users = [
-    {_id: "123", username: "alice", password: "alice", firstName: "Alice", lastName: "Wonder"},
-    {_id: "234", username: "bob", password: "bob", firstName: "Bob", lastName: "Marley"},
-    {_id: "345", username: "charly", password: "charly", firstName: "Charly", lastName: "Garcia"},
-    {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose", lastName: "Annunzi"}
-];
-
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+passport.use(new LocalStrategy(localStrategy));
+passport.serializeUser(serializeUser);
+passport.deserializeUser(deserializeUser);
+var googleConfig = {
+    clientID     : "482063836315-k8e1hh65v10klcm0sp2288bcu7h8cefg.apps.googleusercontent.com",
+    clientSecret : "q-KDENx4uuyTO7-CrEO_hPVF",
+    callbackURL  : "/auth/google/callback"
+};
+var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+passport.use(new GoogleStrategy(googleConfig, googleStrategy));
 
 //html handlers
 app.get("/api/user", findUser);
+app.post("/api/login", passport.authenticate('local'), login);
 app.post("/api/user", registerUser);
 app.put("/api/user/:userID", updateUser);
 app.delete("/api/user/:userID", deleteUser);
 app.get("/api/users/:userID", findUserById); //path parameter
+app.post("/api/logout", logout);
+app.get("/api/checkLogin", checkLogin);
+app.get('/auth/google', passport.authenticate('google', {scope: ['profile', 'email']}));
+app.get('/auth/google/callback',
+    passport.authenticate('google', {
+        successRedirect: '/assignment/#!/profile',
+        failureRedirect: '/assignment/#!/login'
+    }));
 
+function googleStrategy(token, refreshToken, profile, done) {
+    userModel
+        .findUserByGoogleId(profile.id)
+        .then(
+            function (user) {
+                if (user) {
+                    return done(null, user);
+                } else {
+                    var email = profile.emails[0].value;
+                    var emailParts = email.split("@");
+                    var newGoogleUser = {
+                        username: emailParts[0],
+                        firstName: profile.name.givenName,
+                        lastName: profile.name.familyName,
+                        email: email,
+                        google: {
+                            id: profile.id,
+                            token: token
+                        }
+                    };
+                    return userModel.createUser(newGoogleUser);
+                }
+            },
+            function (err) {
+                if (err) {
+                    return done(err);
+                }
+            }
+        )
+        .then(
+            function (user) {
+                return done(null, user);
+            },
+            function (err) {
+                if (err) {
+                    return done(err);
+                }
+            }
+        );
+}
+
+function authorized(req, res, next) {
+    if (!req.isAuthenticated()) {
+        res.send(401);
+    } else {
+        next();
+    }
+};
+
+function login(req, response) {
+    var user = req.user;
+    response.json(user);
+}
+
+function localStrategy(username, password, done) {
+    userModel.findUserByCredentials(username, password)
+        .then(function (user) {
+            if (!user) {
+                return done(null, false);
+            }
+
+            return done(null, user);
+
+        }, function (err) {
+            if (err) {
+                return done(err);
+            }
+        });
+}
 
 function findUserById(req, response) {
 
@@ -25,19 +107,14 @@ function findUserById(req, response) {
             response.json(user);
             return;
         })
-
-    /*for (var u in users) {
-     if (users[u]._id === req.params.userID) {
-     response.send(users[u]);
-     return;
-     }
-     }*/
-
 }
 function findUser(req, response) {
 
+    var body = req.body;
+
     var username = req.query.username;
     var password = req.query.password;
+
 
     if (username && password) {
 
@@ -52,12 +129,6 @@ function findUser(req, response) {
 
         return;
 
-        // for (var u in users) {
-        //     if (users[u].username === username && users[u].password === password) {
-        //         response.send(users[u]);
-        //         return;
-        //     }
-        // }
     } else if (username) {
 
         userModel.findUserByUsername(username)
@@ -70,16 +141,7 @@ function findUser(req, response) {
             });
 
         return;
-
-        // for (var u in users) {
-        //     if (users[u].username === username) {
-        //         response.send(users[u]);
-        //         return;
-        //     }
-        // }
     }
-
-    //response.send("0");
 
 }
 
@@ -94,10 +156,6 @@ function registerUser(req, response) {
             return;
         })
 
-    // user._id = (new Date()).getTime() + "";
-    // users.push(user);
-    // response.send(user);
-    // return;
 }
 
 function updateUser(req, response) {
@@ -114,21 +172,13 @@ function updateUser(req, response) {
             response.sendStatus(404).send(err);
             return;
         });
-
-    /*for (var u in users) {
-     if (users[u]._id == userID) {
-     users[u] = user;
-     response.send(users[u]);
-     return;
-     }
-     }
-
-     response.sendStatus(404);*/
 }
 
 function deleteUser(req, response) {
 
     var userID = req.params.userID;
+
+    req.logout();
 
     userModel
         .deleteUser(userID)
@@ -139,18 +189,33 @@ function deleteUser(req, response) {
             response.sendStatus(404).send(err);
             return;
         });
-
-    // for (var u in users) {
-    //     if (users[u]._id == userID) {
-    //         response.send(users.splice(u, 1));
-    //         return;
-    //     }
-    // }
-    //
-    // response.sendStatus(404);
 }
 
+function serializeUser(user, done) {
+    done(null, user);
+}
 
+function deserializeUser(user, done) {
+    userModel
+        .findUserById(user._id)
+        .then(
+            function (user) {
+                done(null, user);
+            },
+            function (err) {
+                done(err, null);
+            }
+        );
+}
+
+function logout(req, res) {
+    req.logOut();
+    res.send(200);
+}
+
+function checkLogin(req, res) {
+    res.send(req.isAuthenticated() ? req.user : '0');
+}
 
 
 

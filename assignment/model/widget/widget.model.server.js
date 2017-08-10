@@ -47,7 +47,8 @@ function findWidgetById(widgetID) {
 }
 
 function updateWidget(widgetID, widget) {
-    return widgetModel.update({_id: widgetID},
+    return widgetModel.update(
+        {_id: widgetID},
         {$set: widget});
 }
 
@@ -69,7 +70,7 @@ function deleteWidget(widgetID) {
 function reorderWidget(pageID, start, end) {
 
     return pageModel
-        .findOne({_id: pageID})
+        .findPageById(pageID)
         .then(function (page) {
             page.widgets.splice(end, 0, page.widgets.splice(start, 1)[0]);
             return page.save();

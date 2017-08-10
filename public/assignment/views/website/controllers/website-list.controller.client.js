@@ -8,11 +8,10 @@
         .module("WamApp")
         .controller("websiteListController", websiteListController);
 
-    function websiteListController($routeParams, websiteService) {
+    function websiteListController($routeParams, websiteService, user) {
         var model = this;
 
-        model.userID = $routeParams.userID;
-        model.webID = $routeParams.webID;
+        model.userID = user._id;
 
         function init() {
             websiteService
