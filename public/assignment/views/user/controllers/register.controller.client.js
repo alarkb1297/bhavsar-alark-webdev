@@ -38,10 +38,8 @@
             userService
                 .findUserByUsername(user.username)
                 .then(function (_user) {
-                    console.log("coming back in controller")
                     console.log(_user);
                     if (!_user) {
-                        console.log("coming into registering user controller")
                         return userService.registerUser(user);
                     } else {
                         model.errorMessage = "User already exists";
@@ -56,7 +54,6 @@
                     $location.url("/profile");
                     return _user;
                 })
-
         }
     }
 

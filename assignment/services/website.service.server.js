@@ -23,15 +23,6 @@ function findWebsitesForUser(req, response) {
             return;
         });
 
-    // var sites = [];
-    //
-    // for (var w in websites) {
-    //     if (websites[w].developerId == userID) {
-    //         sites.push(websites[w]);
-    //     }
-    // }
-    //
-    // response.json(sites);
 }
 
 function findWebsiteById(req, response) {
@@ -48,14 +39,6 @@ function findWebsiteById(req, response) {
             return;
         });
 
-    // for (var w in websites) {
-    //     if (websites[w]._id == req.params.webID) {
-    //         response.send(websites[w]);
-    //         return;
-    //     }
-    // }
-    //
-    // response.sendStatus(404);
 }
 
 
@@ -71,12 +54,6 @@ function createWebsite(req, response) {
             return;
         });
 
-    // website._id = (new Date()).getTime() + "";
-    // website.developerId = userID;
-    //
-    // websites.push(website);
-    //
-    // response.json(website);
 }
 
 function deleteWebsite(req, response) {
@@ -92,14 +69,6 @@ function deleteWebsite(req, response) {
             return;
         });
 
-    // for (var w in websites) {
-    //     if (websites[w]._id == webID) {
-    //         response.send(websites.splice(w, 1));
-    //         return;
-    //     }
-    // }
-    //
-    // response.sendStatus(404);
 }
 
 function updateWebsite(req, response) {
@@ -117,15 +86,5 @@ function updateWebsite(req, response) {
             return;
         });
 
-
-    // for (var w in websites) {
-    //     if (websites[w]._id == webID) {
-    //         websites[w] = website;
-    //         response.send(websites[w]);
-    //         return;
-    //     }
-    // }
-    //
-    // response.sendStatus(404);
 
 }

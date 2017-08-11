@@ -5,17 +5,6 @@
              src="http://bhavsar-alark-webdev.herokuapp.com/project/logos/bK-medium-208px.png">
     </a>
 
-    <!--<div class="col-xs-9 pull-right ab-details-search">
-        <div class="input-group btn-group">
-            <input type="text" class="form-control" placeholder="Search book by...">
-            <span class="input-group-btn">
-                <button class="btn btn-primary" type="button">Title</button>
-            </span>
-            <span class="input-group-btn">
-                <button class="btn btn-primary" type="button">Author</button>
-            </span>
-        </div>
-    </div>-->
 
     <div class="col-xs-9 pull-right ab-details-search">
         <div class="input-group">
@@ -79,12 +68,10 @@
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
-
-    <a href="#!/profile/{{model.userID}}">
-        <span class="pull-left glyphicon glyphicon-saved ab-logo-color btn-lg"></span>
-    </a>
-    <a href="#!/profile/{{model.userID}}">
-        <span class="pull-right glyphicon glyphicon-user ab-logo-color btn-lg"></span>
-    </a>
-
+        <a ng-show="model.user" href="#!/profile">
+            <span class="pull-left glyphicon glyphicon-saved ab-logo-color btn-lg"></span>
+        </a>
+        <a href="#!/profile">
+            <span class="pull-right glyphicon glyphicon-user ab-logo-color btn-lg"></span>
+        </a>
 </nav>

@@ -5,47 +5,25 @@
         .controller("profileController", profileController);
 
 
-    function profileController($routeParams, userService, $location) {
+    function profileController(userService, $location, user) {
 
         var model = this;
 
-        model.userId = $routeParams.userId;
+        model.user = user;
+        model.userId = user._id;
 
-        model.updateUser = updateUser;
-        model.deleteUser = deleteUser;
+        model.logout = logout;
 
         function init() {
-            userService.findUserById(model.userId)
-                .then(function (user) {
-                    model.user = user;
-                });
+
         }
 
         init();
 
 
-        function updateUser(user) {
-
-            userService.findUserByUsername(user.username)
-                .then(function (_user) {
-                    if (_user !== null && _user._id === model.userId) {
-                        return userService.updateUser(user._id, user);
-                    } else {
-                        model.errorMessage = "User already exists";
-                        return;
-                    }
-                })
-                .then(function (_user) {
-                    model.confMessage = "User successfully updated";
-                    $location.url("/profile/" + _user._id);
-                    return _user;
-                })
-        }
-
-
-        function deleteUser(userID) {
-            userService.deleteUser(userID)
-                .then(function (status) {
+        function logout() {
+            userService.logout()
+                .then(function (response) {
                     $location.url("/login");
                 })
         }

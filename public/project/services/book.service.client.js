@@ -15,9 +15,9 @@
         };
         return api;
 
-        function searchBookByVolumeId(volumeId) {
+        function searchBookByVolumeId(volumeID) {
 
-            var url = "https://www.googleapis.com/books/v1/volumes/" + volumeId +"?key=" + apiKey;
+            var url = "https://www.googleapis.com/books/v1/volumes/" + volumeID +"?key=" + apiKey;
             return $http.get(url)
                 .then(function (response) {
                     return response.data;
@@ -37,6 +37,15 @@
             return $http.get(url)
                 .then(function (response) {
                     return response.data;
+                });
+        }
+
+        function createBook(userID, book) {
+            var url = "/api/project/user" + userID + "/book";
+
+            return $http.post(url, book)
+                .then(function (response) {
+                    return book = response.data;
                 });
         }
 

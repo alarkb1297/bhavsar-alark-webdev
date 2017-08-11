@@ -40,12 +40,6 @@ function createWidget(req, response) {
             response.json(widget);
         });
 
-    // widget._id = (new Date()).getTime() + "";
-    // widget.pageId = pageID;
-    //
-    // widgets.push(widget);
-    //
-    // response.json(widget);
 }
 
 function findWidgetsByPageId(req, response) {
@@ -59,16 +53,6 @@ function findWidgetsByPageId(req, response) {
         }, function (err) {
             response.sendStatus(404).send(err);
         });
-
-    // var wdgts = [];
-    //
-    // for (var w in widgets) {
-    //     if (widgets[w].pageId == pageID) {
-    //         wdgts.push(widgets[w]);
-    //     }
-    // }
-    //
-    // response.json(wdgts);
 
 }
 
@@ -85,15 +69,6 @@ function findWidgetById(req, response) {
             response.sendStatus(404).send(err);
             return;
         });
-
-    // for (var w in widgets) {
-    //     if (widgets[w]._id == widgetID) {
-    //         response.json(widgets[w]);
-    //         return;
-    //     }
-    // }
-    //
-    // response.sendStatus(404);
 }
 
 function updateWidget(req, response) {
@@ -111,15 +86,6 @@ function updateWidget(req, response) {
             return;
         });
 
-    // for (var w in widgets) {
-    //     if (widgets[w]._id == widgetID) {
-    //         widgets[w] = widget;
-    //         response.json(widgets[w]);
-    //         return;
-    //     }
-    // }
-    //
-    // response.sendStatus(404);
 }
 
 function deleteWidget(req, response) {
@@ -136,14 +102,6 @@ function deleteWidget(req, response) {
             return;
         });
 
-    // for (var w in widgets) {
-    //     if (widgets[w]._id == widgetID) {
-    //         response.json(widgets.splice(w, 1));
-    //         return;
-    //     }
-    // }
-    //
-    // response.sendStatus(404);
 }
 
 function uploadImage(req, response) {
@@ -193,20 +151,5 @@ function sortWidgets(req, response) {
         .then(function (widgets) {
             response.json(widgets);
         })
-
-    // var indices = [];
-    // for (var w in widgets) {
-    //     if (widgets[w].pageId == pageID) {
-    //         indices.push(w);
-    //     }
-    // }
-    //
-    // var startIndex = indices[start];
-    // var endIndex = indices[end];
-    //
-    // widgets.splice(endIndex, 0, widgets.splice(startIndex, 1)[0]);
-    //
-    // res.json(widgets);
-    // return;
 }
 

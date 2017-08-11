@@ -12,6 +12,7 @@
 
         model.registerUser = registerUser;
 
+
         function init() {
 
         }
@@ -35,7 +36,7 @@
                 .then(function (_user) {
 
                     if (!_user) {
-                        return userService.registerUser(user)
+                        return userService.registerUser(user);
                     } else {
                         model.errorMessage = "User already exists";
                         return;
@@ -43,10 +44,12 @@
 
                 })
                 .then(function (_user) {
-                    $location.url("/profile/" + _user._id);
+                    return userService.login(_user.username, _user.password);
+                })
+                .then(function (_user) {
+                    $location.url("/profile");
                     return _user;
                 })
-
         }
     }
 

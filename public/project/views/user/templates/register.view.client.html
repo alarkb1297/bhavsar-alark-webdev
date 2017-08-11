@@ -5,23 +5,6 @@
              src="http://bhavsar-alark-webdev.herokuapp.com/project/logos/bK-medium-208px.png">
     </a>
 
-    <div class="col-xs-9 pull-right ab-details-search">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search Books" ng-model="searchQuery">
-            <div class="input-group-btn">
-                <button type="button"
-                        class="btn btn-default dropdown-toggle"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="true">By <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-right">
-                    <li><a ng-click="model.searchBookByTitle(searchQuery)">Title</a></li>
-                    <li><a ng-click="model.searchBookByAuthor(searchQuery)">Author</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
 
 </nav>
 
@@ -39,6 +22,20 @@
            class="form-control"
            placeholder="username"
            id="username"/>
+
+    <label class="ab-text" for="firstName">First Name</label>
+    <input name="firstName"
+           ng-model="user.firstName"
+           class="form-control"
+           placeholder="Charlie"
+           id="firstName"/>
+
+    <label class="ab-text" for="lastName">Last Name</label>
+    <input name="lastName"
+           ng-model="user.lastName"
+           class="form-control"
+           placeholder="Charlie"
+           id="lastName"/>
 
     <label class="ab-text" for="password">Password</label>
     <input name="password"

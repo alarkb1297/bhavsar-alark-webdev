@@ -4,12 +4,14 @@
         .module("booKlub")
         .controller("searchController", searchController);
 
-    function searchController(bookService, $routeParams, $location) {
+    function searchController(bookService, $routeParams, $location, user) {
 
         var model = this;
 
         model.searchBookByTitle = searchBookByTitle;
         model.searchBookByAuthor = searchBookByAuthor;
+
+        model.user = user;
 
         model.searchOption = $routeParams.searchOption;
         model.searchQuery = $routeParams.searchQuery;

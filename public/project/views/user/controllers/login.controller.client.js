@@ -11,7 +11,9 @@
         model.login = login;
 
         function init() {
-
+            userService.logout()
+                .then(function (response) {
+                })
         }
 
         init();
@@ -24,7 +26,7 @@
             }
 
             userService
-                .findUserByUsernameAndPassword(user.username, user.password)
+                .login(user.username, user.password)
                 .then(function (_user) {
 
                     if (_user === null) {
@@ -32,7 +34,7 @@
                     }
                     else {
                         $rootScope.currentUser = _user;
-                        $location.url("/profile/" + _user._id);
+                        $location.url("/profile");
                     }
                 })
 

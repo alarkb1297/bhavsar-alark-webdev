@@ -39,6 +39,10 @@ body {
     margin-right: 10px;
 }
 
+.ab-profile-navbar-buttons {
+    margin-left: 10px;
+}
+
 .ab-home-navbar-logo {
     max-height: 100%;
     max-width: 100%;

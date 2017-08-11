@@ -4,20 +4,23 @@
         .module("booKlub")
         .controller("detailsController", detailsController);
 
-    function detailsController($routeParams, bookService, $sce, $location) {
+    function detailsController($routeParams, bookService, $sce, $location, user, userService) {
 
         var model = this;
 
-        model.volumeId = $routeParams.volumeId;
+        model.volumeID = $routeParams.volumeID;
+        model.user = user;
 
         model.searchBookByTitle = searchBookByTitle;
         model.searchBookByAuthor = searchBookByAuthor;
+        model.createBook = createBook;
+
 
         model.trustHtmlContent = trustHtmlContent;
 
         function init() {
             bookService
-                .searchBookByVolumeId(model.volumeId)
+                .searchBookByVolumeId(model.volumeID)
                 .then(function (response) {
                     var book = response;
                     model.book = book;
@@ -54,6 +57,14 @@
 
         function trustHtmlContent(htmlContent) {
             return $sce.trustAsHtml(htmlContent);
+        }
+
+        function createBook(book) {
+            bookService
+                .createBook(model.user, book)
+                .then(function (reponse) {
+                    model.confMessage = "Book successfully added to your bookShelf";
+                })
         }
 
     }

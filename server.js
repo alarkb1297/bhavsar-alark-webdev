@@ -1,6 +1,6 @@
+require('dotenv').config();
 var app = require('./express');
 var express = app.express;
-
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -24,7 +24,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //require("./test/app");
-require("./assignment/app");
-
+//require("./assignment/app");
+require("./project/app");
 
 app.listen(process.env.PORT || 3000);

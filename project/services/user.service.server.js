@@ -6,30 +6,32 @@ passport.use(new LocalStrategy(localStrategy));
 passport.serializeUser(serializeUser);
 passport.deserializeUser(deserializeUser);
 var googleConfig = {
-    clientID     : process.env.GOOGLE_CLIENT_ID,
-    clientSecret : process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL  : process.env.GOOGLE_CALLBACK_URL
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    callbackURL: process.env.GOOGLE_CALLBACK_URL
 };
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 passport.use(new GoogleStrategy(googleConfig, googleStrategy));
 
+var auth = authorized;
 //html handlers
-app.get("/api/user", findUser);
-app.post("/api/login", passport.authenticate('local'), login);
-app.post("/api/user", registerUser);
-app.put("/api/user/:userID", updateUser);
-app.delete("/api/user/:userID", deleteUser);
-app.get("/api/users/:userID", findUserById); //path parameter
-app.post("/api/logout", logout);
-app.get("/api/checkLogin", checkLogin);
-app.get('/auth/google', passport.authenticate('google', {scope: ['profile', 'email']}));
-app.get('/auth/google/callback',
+app.get("/api/project/user", findUser);
+app.post("/api/project/login", passport.authenticate('local'), login);
+app.post("/api/project/user", registerUser);
+app.put("/api/project/user/:userID", auth, updateUser);
+app.delete("/api/project/user/:userID", auth, deleteUser);
+app.get("/api/project/users/:userID", findUserById); //path parameter
+app.post("/api/project/logout", logout);
+app.get("/api/project/checkLogin", checkLogin);
+app.get('/project/auth/google', passport.authenticate('google', {scope: ['profile', 'email']}));
+app.get('/project/auth/google/callback',
     passport.authenticate('google', {
-        successRedirect: '/assignment/#!/profile',
-        failureRedirect: '/assignment/#!/login'
+        successRedirect: '/project/#!/profile',
+        failureRedirect: '/project/#!/login'
     }));
 
 function googleStrategy(token, refreshToken, profile, done) {
+
     userModel
         .findUserByGoogleId(profile.id)
         .then(
@@ -46,7 +48,8 @@ function googleStrategy(token, refreshToken, profile, done) {
                         email: email,
                         google: {
                             id: profile.id,
-                            token: token
+                            token: token,
+                            imgUrl: profile._json.image.url
                         }
                     };
                     return userModel.createUser(newGoogleUser);

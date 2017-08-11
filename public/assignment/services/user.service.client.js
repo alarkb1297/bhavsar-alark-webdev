@@ -45,7 +45,6 @@
 
             return $http.post(url, {username: username, password: password})
                 .then(function (response) {
-                    console.log(response);
                     var user = response.data;
                     return user;
                 });
