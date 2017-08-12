@@ -32,6 +32,10 @@
         {{model.errorMessage}}
     </div>
 
+    <div ng-show="model.confMessage" class="alert alert-success">
+        {{model.confMessage}}
+    </div>
+
     <div class="ab-book-details">
 
         <img ng-src="{{model.book.volumeInfo.imageLinks.thumbnail}}"/>
@@ -68,10 +72,21 @@
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
-        <a ng-show="model.user" href="#!/profile">
+
+    <div ng-show="model.user">
+        <a ng-show="!model.inBookShelf" ng-click="model.createBook({'title' : model.book.volumeInfo.title,
+                                                            'volumeID' : model.volumeID,
+                                                            'imgUrl' : model.book.volumeInfo.imageLinks.thumbnail})">
             <span class="pull-left glyphicon glyphicon-saved ab-logo-color btn-lg"></span>
         </a>
-        <a href="#!/profile">
-            <span class="pull-right glyphicon glyphicon-user ab-logo-color btn-lg"></span>
+
+        <a ng-show="model.inBookShelf" ng-click="model.removeBookFromBookShelf(model.volumeID)">
+            <span class="pull-left glyphicon glyphicon-remove ab-logo-color btn-lg"></span>
         </a>
+    </div>
+
+
+    <a href="#!/profile">
+        <span class="pull-right glyphicon glyphicon-user ab-logo-color btn-lg"></span>
+    </a>
 </nav>

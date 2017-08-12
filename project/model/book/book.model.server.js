@@ -13,15 +13,18 @@ bookModel.deleteBook = deleteBook;
 module.exports = bookModel;
 
 function createBook(userID, book) {
+
     return bookModel
         .findBookByVolumeId(book.volumeID)
-        .then(function (response) {
-            if (response) {
-                return userService.addBookToBookShelf(userID, book);
+        .then(function (_book) {
+            if (_book) {
+                return bookModel.findBookByVolumeId(_book.volumeID);
             } else {
-                bookModel.create(book);
-                return userService.addBookToBookShelf(userID, book);
+                return bookModel.create(book);
             }
+        })
+        .then(function (book) {
+            return userModel.addBookToBookShelf(userID, book);
         })
 }
 

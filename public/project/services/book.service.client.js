@@ -11,7 +11,11 @@
         var api = {
             "searchBookByTitle": searchBookByTitle,
             "searchBookByAuthor": searchBookByAuthor,
-            "searchBookByVolumeId": searchBookByVolumeId
+            "searchBookByVolumeId": searchBookByVolumeId,
+            "createBook" : createBook,
+            "updateBook" : updateBook,
+            "deleteBook" : deleteBook,
+            "findBookById" : findBookById
         };
         return api;
 
@@ -41,14 +45,46 @@
         }
 
         function createBook(userID, book) {
-            var url = "/api/project/user" + userID + "/book";
+
+            var url = "/api/project/user/" + userID + "/book";
 
             return $http.post(url, book)
                 .then(function (response) {
-                    return book = response.data;
+                    var book = response.config.data;
+                    return book;
                 });
         }
 
+        function deleteBook(bookID) {
+
+            var url = "/api/project/book/" + bookID;
+
+            return $http.delete(url)
+                .then(function (response) {
+                    return resposne;
+                });
+        }
+
+        function updateBook(bookID, book) {
+
+            var url = "/api/project/book/" + bookID;
+
+            return $http.put(url, book)
+                .then(function (response) {
+                    return findBookById(bookID);
+                });
+        }
+
+        function findBookById(bookID) {
+
+            var url = "/api/project/book/" + bookID;
+
+            return $http.get(url)
+                .then(function (response) {
+                    var book = reponse.data;
+                    return book;
+                });
+        }
 
     }
 

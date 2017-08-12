@@ -14,7 +14,8 @@
         model.searchBookByTitle = searchBookByTitle;
         model.searchBookByAuthor = searchBookByAuthor;
         model.createBook = createBook;
-
+        model.removeBookFromBookShelf = removeBookFromBookShelf;
+        model.isBookInBookShelf = isBookInBookShelf;
 
         model.trustHtmlContent = trustHtmlContent;
 
@@ -24,6 +25,9 @@
                 .then(function (response) {
                     var book = response;
                     model.book = book;
+                    if (user) {
+                        model.isBookInBookShelf(model.volumeID);
+                    }
                 });
         }
 
@@ -61,10 +65,35 @@
 
         function createBook(book) {
             bookService
-                .createBook(model.user, book)
+                .createBook(model.user._id, book)
                 .then(function (reponse) {
                     model.confMessage = "Book successfully added to your bookShelf";
+                    model.errorMessage = null;
+                    model.inBookShelf = true;
                 })
+        }
+
+        function removeBookFromBookShelf(volumeID) {
+            userService
+                .removeBookFromBookShelf(model.user._id, volumeID)
+                .then(function (response) {
+                    model.errorMessage = "Book successfully removed from your bookShelf";
+                    model.confMessage = null;
+                    model.inBookShelf = false;
+                })
+
+        }
+
+        function isBookInBookShelf(_volumeID) {
+
+            model.inBookShelf = false;
+
+            for (var book = 0; book < user.bookShelf.length; book++) {
+                if (user.bookShelf[book].volumeID === _volumeID) {
+                    model.inBookShelf = true;
+                    break;
+                }
+            }
         }
 
     }

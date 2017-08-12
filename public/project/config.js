@@ -59,6 +59,14 @@
                     user: checkLogin
                 }
             })
+            .when("/profile/admin-center", {
+                templateUrl: "./views/user/templates/admin-center.view.client.html",
+                controller: "adminCenterController",
+                controllerAs: "model",
+                resolve: {
+                    user: checkAdmin
+                }
+            })
     }
 
     function checkLogin(userService, $q, $location) {
@@ -71,6 +79,23 @@
                 if (user === "0") {
                     deferred.reject();
                     $location.url("/login");
+                } else {
+                    deferred.resolve(user);
+                }
+            });
+        return deferred.promise;
+    }
+
+    function checkAdmin(userService, $q, $location) {
+
+        var deferred = $q.defer();
+
+        userService
+            .checkAdmin()
+            .then(function (user) {
+                if (user === "0") {
+                    deferred.reject();
+                    $location.url("/profile");
                 } else {
                     deferred.resolve(user);
                 }

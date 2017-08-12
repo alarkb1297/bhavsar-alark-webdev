@@ -35,20 +35,23 @@
             userService.findUserByUsername(user.username)
                 .then(function (_user) {
 
-                    if (!_user) {
-                        return userService.registerUser(user);
-                    } else {
+                    if (_user) {
                         model.errorMessage = "User already exists";
-                        return;
+                    } else {
+                        return userService.registerUser(user);
                     }
 
                 })
                 .then(function (_user) {
-                    return userService.login(_user.username, _user.password);
+                    if (_user) {
+                        return userService.login(_user.username, _user.password);
+                    }
                 })
                 .then(function (_user) {
-                    $location.url("/profile");
-                    return _user;
+                    if (_user) {
+                        $location.url("/profile");
+                        return _user;
+                    }
                 })
         }
     }

@@ -10,6 +10,7 @@ userModel.findUserByUsername = findUserByUsername;
 userModel.deleteUser = deleteUser;
 userModel.findUserByGoogleId = findUserByGoogleId;
 userModel.addBookToBookShelf = addBookToBookShelf;
+userModel.removeBookFromBookShelf = removeBookFromBookShelf;
 module.exports = userModel;
 
 function createUser(user) {
@@ -17,7 +18,10 @@ function createUser(user) {
 }
 
 function findUserById(userID) {
-    return userModel.findById(userID);
+    return userModel
+        .findById(userID)
+        .populate('bookShelf')
+        .exec();
 }
 
 function updateUser(userID, user) {
@@ -30,7 +34,10 @@ function findUserByCredentials(username, password) {
 }
 
 function findUserByUsername(username) {
-    return userModel.findOne({username: username});
+    return userModel
+        .findOne({username: username})
+        .populate('bookShelf')
+        .exec();
 }
 
 function deleteUser(userID) {
@@ -39,14 +46,40 @@ function deleteUser(userID) {
 
 function findUserByGoogleId(googleID) {
     return userModel
-        .findOne({"google.id" : googleID});
+        .findOne({"google.id": googleID})
+        .populate('bookShelf')
+        .exec();
 }
 
 function addBookToBookShelf(userID, book) {
+
+    var index;
+
     return userModel
         .findUserById(userID)
         .then(function (user) {
             user.bookShelf.push(book);
-            return user.save();
+            user.save();
+            index = user.bookShelf.indexOf(book);
+            return user.bookShelf[index];
         })
+}
+
+function removeBookFromBookShelf(userID, _volumeID) {
+
+    return userModel
+        .findById(userID)
+        .populate('bookShelf')
+        .exec()
+        .then(function (user) {
+
+            for (var i = 0; i < user.bookShelf.length; i++) {
+                if (user.bookShelf[i].volumeID === _volumeID) {
+                    user.bookShelf.splice(i, 1);
+                    break;
+                }
+            }
+
+            return user.save();
+        });
 }

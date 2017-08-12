@@ -18,7 +18,8 @@
             "updateUser": updateUser,
             "deleteUser": deleteUser,
             "checkLogin": checkLogin,
-            "logout": logout
+            "logout": logout,
+            "removeBookFromBookShelf": removeBookFromBookShelf
         };
         return api;
 
@@ -42,7 +43,7 @@
 
             return $http.get(url)
                 .then(function (response) {
-                    var user = response.data;
+                    var user = response.config.data;
                     return user;
                 });
         }
@@ -87,7 +88,7 @@
 
             return $http.post(url, user)
                 .then(function (response) {
-                    var user = response.data;
+                    var user = response.config.data;
                     return user;
                 });
 
@@ -99,11 +100,21 @@
 
             return $http.delete(url)
                 .then(function (response) {
-
-                    var status = response.data;
+                    var status = response.config.data;
                     return status;
 
                 });
+        }
+
+        function removeBookFromBookShelf(userID, volumeID) {
+
+            var url = "/api/project/users/" + userID + "/book/remove/" + volumeID;
+
+            return $http.put(url)
+                .then(function (user) {
+                    return user;
+                })
+
         }
 
     }

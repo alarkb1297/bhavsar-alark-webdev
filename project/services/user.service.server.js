@@ -22,6 +22,7 @@ app.put("/api/project/user/:userID", auth, updateUser);
 app.delete("/api/project/user/:userID", auth, deleteUser);
 app.get("/api/project/users/:userID", findUserById); //path parameter
 app.post("/api/project/logout", logout);
+app.put("/api/project/users/:userID/book/remove/:volumeID", removeBookFromBookShelf);
 app.get("/api/project/checkLogin", checkLogin);
 app.get('/project/auth/google', passport.authenticate('google', {scope: ['profile', 'email']}));
 app.get('/project/auth/google/callback',
@@ -213,11 +214,27 @@ function deserializeUser(user, done) {
 
 function logout(req, res) {
     req.logOut();
-    res.send(200);
+    res.sendStatus(200);
 }
 
 function checkLogin(req, res) {
     res.send(req.isAuthenticated() ? req.user : '0');
+}
+
+function removeBookFromBookShelf(req, response) {
+
+    var userID = req.params.userID;
+    var volumeID = req.params.volumeID;
+
+    userModel
+        .removeBookFromBookShelf(userID, volumeID)
+        .then(function (user) {
+            response.json(user);
+            return;
+        }, function (err) {
+            response.send("0");
+            return;
+        });
 }
 
 

@@ -64,6 +64,17 @@ body {
     color: #ffc100;
 }
 
+.ab-carousel-div {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+
+.ab-carousel-img {
+    position: static;
+    margin: auto;
+}
+
 .list-group-item {
     background-color: transparent;
     border-color: transparent;
@@ -150,3 +161,8 @@ body {
 .btn-pref .btn {
     -webkit-border-radius:0 !important;
 }
+
+.slick-prev:before, .slick-next:before {
+    color: #ffc100;
+}
+

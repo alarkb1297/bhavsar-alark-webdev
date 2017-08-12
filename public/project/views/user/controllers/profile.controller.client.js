@@ -11,15 +11,13 @@
 
         model.user = user;
         model.userId = user._id;
+        model.bookShelf = user.bookShelf;
 
         model.logout = logout;
 
         function init() {
-
         }
-
         init();
-
 
         function logout() {
             userService.logout()

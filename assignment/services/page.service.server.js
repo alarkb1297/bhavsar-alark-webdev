@@ -24,12 +24,6 @@ function createPage(req, response) {
             response.json(page);
         });
 
-    // page._id = (new Date()).getTime() + "";
-    // page.websiteId = webID;
-    //
-    // pages.push(page);
-    //
-    // response.json(page);
 }
 
 function findPagesByWebsiteId(req, response) {
