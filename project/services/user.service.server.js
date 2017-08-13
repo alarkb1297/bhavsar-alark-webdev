@@ -20,10 +20,12 @@ app.post("/api/project/login", passport.authenticate('local'), login);
 app.post("/api/project/user", registerUser);
 app.put("/api/project/user/:userID", auth, updateUser);
 app.delete("/api/project/user/:userID", auth, deleteUser);
-app.get("/api/project/users/:userID", findUserById); //path parameter
+app.get("/api/project/users/:userID", findUserById);
+app.get("/api/project/users", findAllUsers);
 app.post("/api/project/logout", logout);
 app.put("/api/project/users/:userID/book/remove/:volumeID", removeBookFromBookShelf);
 app.get("/api/project/checkLogin", checkLogin);
+app.get("/api/project/checkAdmin", checkAdmin);
 app.get('/project/auth/google', passport.authenticate('google', {scope: ['profile', 'email']}));
 app.get('/project/auth/google/callback',
     passport.authenticate('google', {
@@ -182,8 +184,6 @@ function deleteUser(req, response) {
 
     var userID = req.params.userID;
 
-    req.logout();
-
     userModel
         .deleteUser(userID)
         .then(function (status) {
@@ -221,6 +221,10 @@ function checkLogin(req, res) {
     res.send(req.isAuthenticated() ? req.user : '0');
 }
 
+function checkAdmin(req, res) {
+    res.send((req.isAuthenticated() && req.user.isAdmin) ? req.user : '0');
+}
+
 function removeBookFromBookShelf(req, response) {
 
     var userID = req.params.userID;
@@ -233,6 +237,18 @@ function removeBookFromBookShelf(req, response) {
             return;
         }, function (err) {
             response.send("0");
+            return;
+        });
+}
+
+function findAllUsers(req, response) {
+    userModel
+        .findAllUsers()
+        .then(function (users) {
+            response.json(users);
+            return;
+        }, function (err) {
+            response.sendStatus(404).send(err);
             return;
         });
 }

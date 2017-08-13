@@ -8,6 +8,7 @@ userModel.updateUser = updateUser;
 userModel.findUserByCredentials = findUserByCredentials;
 userModel.findUserByUsername = findUserByUsername;
 userModel.deleteUser = deleteUser;
+userModel.findAllUsers = findAllUsers;
 userModel.findUserByGoogleId = findUserByGoogleId;
 userModel.addBookToBookShelf = addBookToBookShelf;
 userModel.removeBookFromBookShelf = removeBookFromBookShelf;
@@ -82,4 +83,9 @@ function removeBookFromBookShelf(userID, _volumeID) {
 
             return user.save();
         });
+}
+
+function findAllUsers() {
+    return userModel.find({});
+
 }

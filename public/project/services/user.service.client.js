@@ -16,8 +16,10 @@
             "findUserById": findUserById,
             "registerUser": registerUser,
             "updateUser": updateUser,
+            "findAllUsers": findAllUsers,
             "deleteUser": deleteUser,
             "checkLogin": checkLogin,
+            "checkAdmin": checkAdmin,
             "logout": logout,
             "removeBookFromBookShelf": removeBookFromBookShelf
         };
@@ -30,8 +32,22 @@
                 })
         }
 
+        function checkAdmin() {
+            return $http.get("/api/project/checkAdmin")
+                .then(function (response) {
+                    return response.data;
+                })
+        }
+
         function logout() {
             return $http.post("/api/project/logout")
+                .then(function (response) {
+                    return response.data;
+                })
+        }
+
+        function findAllUsers() {
+            return $http.get("/api/project/users")
                 .then(function (response) {
                     return response.data;
                 })
@@ -43,7 +59,7 @@
 
             return $http.get(url)
                 .then(function (response) {
-                    var user = response.config.data;
+                    var user = response.data;
                     return user;
                 });
         }

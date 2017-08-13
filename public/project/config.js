@@ -60,8 +60,16 @@
                 }
             })
             .when("/profile/admin-center", {
-                templateUrl: "./views/user/templates/admin-center.view.client.html",
+                templateUrl: "./views/user/admin/templates/admin-center.view.client.html",
                 controller: "adminCenterController",
+                controllerAs: "model",
+                resolve: {
+                    user: checkAdmin
+                }
+            })
+            .when("/profile/admin-center/edit-user/:userID", {
+                templateUrl: "./views/user/admin/templates/admin.edit-user.view.client.html",
+                controller: "adminEditUserController",
                 controllerAs: "model",
                 resolve: {
                     user: checkAdmin

@@ -25,8 +25,9 @@
         <div ng-show="!model.user.google.imgUrl" class="useravatar">
             <img alt="" src="https://www.drupal.org/files/profile_default.png">
         </div>
-        <div class="card-info ab-text"><span class="card-title">{{model.user.firstName}} {{model.user.lastName}}</span>
-
+        <div class="card-info ab-text">
+            <span class="card-title">{{model.user.firstName}} {{model.user.lastName}}</span>
+            <span class="card-title">@{{model.user.username}}</span>
         </div>
     </div>
     <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group">
@@ -76,7 +77,7 @@
         </a>
     </div>
 
-    <div ng-show="!model.user.isAdmin" class="pull-left ab-profile-navbar-buttons">
+    <div ng-show="model.user.isAdmin" class="pull-left ab-profile-navbar-buttons">
         <a href="#!/profile/admin-center">
             <button type="button" class="btn navbar-btn btn-success">Admin Center</button>
         </a>
