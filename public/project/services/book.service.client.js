@@ -61,7 +61,7 @@
 
             return $http.delete(url)
                 .then(function (response) {
-                    return resposne;
+                    return response;
                 });
         }
 

@@ -29,15 +29,31 @@
 
         <img src="http://bhavsar-alark-webdev.herokuapp.com/project/logos/booKlub-large-hd.png" width="100%">
 
-        <input placeholder="The Sun Also Rises"
-               ng-model="model.searchQuery"
-               class="form-control"/>
-        <button ng-click="model.searchBookByTitle(model.searchQuery)" class="btn btn-primary btn-block">
-            Search By Title
-        </button>
-        <button ng-click="model.searchBookByAuthor(model.searchQuery)" class="btn btn-primary btn-block">
-            Search By Author
-        </button>
+        <!--<input placeholder="The Sun Also Rises"-->
+               <!--ng-model="model.searchQuery"-->
+               <!--class="form-control"/>-->
+        <!--<button ng-click="model.searchBookByTitle(model.searchQuery)" class="btn btn-primary btn-block">-->
+            <!--Search By Title-->
+        <!--</button>-->
+        <!--<button ng-click="model.searchBookByAuthor(model.searchQuery)" class="btn btn-primary btn-block">-->
+            <!--Search By Author-->
+        <!--</button>-->
+
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search Books" ng-model="model.searchQuery">
+            <div class="input-group-btn">
+                <button type="button"
+                        class="btn ab-logo-color dropdown-toggle"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="true">By <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li><a ng-click="model.searchBookByTitle(model.searchQuery)">Title</a></li>
+                    <li><a ng-click="model.searchBookByAuthor(model.searchQuery)">Author</a></li>
+                </ul>
+            </div>
+        </div>
 
         <div ng-show="model.errorMessage" class="alert alert-danger">
             {{model.errorMessage}}
@@ -54,7 +70,9 @@
                     </div>
 
                     <div class="col-sm-4">
-                        <img ng-src="{{book.volumeInfo.imageLinks.thumbnail}}" sizes="50%"/>
+                        <a href="#!/details/{{book.id}}">
+                            <img ng-src="{{book.volumeInfo.imageLinks.thumbnail}}" sizes="50%"/>
+                        </a>
                     </div>
                 </div>
             </li>

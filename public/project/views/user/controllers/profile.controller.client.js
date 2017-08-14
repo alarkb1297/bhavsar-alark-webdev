@@ -16,6 +16,8 @@
         model.logout = logout;
 
         function init() {
+
+            console.log(model.user.bookShelf);
         }
         init();
 

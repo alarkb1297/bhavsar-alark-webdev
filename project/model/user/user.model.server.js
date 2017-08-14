@@ -12,6 +12,8 @@ userModel.findAllUsers = findAllUsers;
 userModel.findUserByGoogleId = findUserByGoogleId;
 userModel.addBookToBookShelf = addBookToBookShelf;
 userModel.removeBookFromBookShelf = removeBookFromBookShelf;
+userModel.followBooKlub = followBooKlub;
+userModel.unFollowBooKlub = unFollowBooKlub;
 module.exports = userModel;
 
 function createUser(user) {
@@ -88,4 +90,32 @@ function removeBookFromBookShelf(userID, _volumeID) {
 function findAllUsers() {
     return userModel.find({});
 
+}
+
+function followBooKlub(userID, booKlub) {
+    return userModel
+        .findById(userID)
+        .populate('bookShelf')
+        .exec()
+        .then(function (user) {
+            user.booKlubs.push(booKlub);
+            return user.save();
+        })
+}
+function unFollowBooKlub(userID, booKlubID) {
+    return userModel
+        .findById(userID)
+        .populate('bookShelf')
+        .exec()
+        .then(function (user) {
+
+            for (var i = 0; i < user.booKlubs.length; i++) {
+                if (user.booKlubs[i]._id === booKlubID) {
+                    user.booKlubs.splice(i, 1);
+                    break;
+                }
+            }
+
+            return user.save();
+        })
 }
