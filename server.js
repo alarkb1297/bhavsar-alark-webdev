@@ -23,8 +23,8 @@ app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session());
 
-//require("./test/app");
-//require("./assignment/app");
-require("./project/app");
+require("./test/app");
+require("./assignment/app");
+//require("./project/app");
 
 app.listen(process.env.PORT || 3000);
